@@ -1,0 +1,39 @@
+/* Header */
+.header{
+    /* background-image: url("../images/techSupportBg.webp"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    .blurBg{
+        height: 100%;
+        width: 100%;
+        background-color: #ffffff86;
+        position: absolute;
+        z-index: 1;
+        backdrop-filter: blur(2px);
+    }
+
+    .headerContent{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        z-index: 99;
+    }
+}
+
+/* Honda Logo */
+.hondaLogo{
+    height: 4.8rem;
+    width: auto;
+}
+
+.title{
+    h1{
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
