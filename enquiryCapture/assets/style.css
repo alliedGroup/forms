@@ -6,7 +6,68 @@
 
 .title{
     h1{
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
         font-weight: bold;
     }
+}
+
+/* Fieldset */
+legend.dse{
+    display: inline-block;
+    background: #ffcdd2 ;
+    width: auto;
+    padding: 0px 15px;
+    border-radius: 25px;
+    height: auto;
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    top: -30px;
+}
+legend.customer{
+    display: block;
+    background: #dcdfe4 ;
+    width: 100%;
+    padding: 0px 15px;
+    border-radius: 25px;
+    height: auto;
+    font-size: 18px;
+    position: relative;
+    top: -45px;
+}
+
+.legend{
+    width: 100%;
+    position: relative;
+    left:20px;
+    margin-bottom: 20px;
+    color: #b71c1c;
+}
+.legend::before{
+    content: '';
+    display: inline-block;
+    width: 160px;
+    height: 28px;
+    border-radius: 25px;
+    z-index: -1;
+    position: absolute;
+    background: #ffebee;
+    left: -15px;
+}
+.legend::after{
+    content: '';
+    display: inline-block;
+    width: 90%;
+    height: 1px;
+    background: #ffebee;
+    position: absolute;
+    /* left: -15px; */
+    right: 25px;
+    top:13px;
+    z-index: -2;
+}
+
+/* Input */
+input{
+    margin: ;
 }

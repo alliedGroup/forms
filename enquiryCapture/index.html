@@ -7,11 +7,11 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="container py-5 px-4">
-	<div class="row g-5 d-flex justify-content-center">
+<body class="container py-5 px-4 gx-0">
+	<div class="row d-flex justify-content-center">
         <div class="col-md-6 col-lg-8">
         <!-- Heading -->
-          <div class="header mb-5 border-bottom d-flex pb-5">
+          <div class="header mb-5 d-flex pb-5">
             <img class="hondaLogo" src="assets/images/hondaLogo.svg" alt="Harish Honda">
             <div class="title ms-4">
               <h1 class="fs-1 mb-0">Harish Honda</h1>
@@ -21,55 +21,77 @@
 
           <!-- Enquiry Form Start -->
           <form id="enquiryForm" name="enquiryForm">
+          <div class="row gx-3">
+            <div class="legend">DSE Details</div>
             <!-- Enquiry ID -->
-            <div class="col-sm-6 mb-5">
+            <div class="col-sm-6 mb-5" style="display: none;" >
               <label  for="enquiryId" class="form-label">Enquiry ID</label>
-              <input name="EQ ID" type="text" class="form-control" id="enquiryId" value="" readonly>
+              <input name="EQ ID" type="text" class="form-control" id="enquiryId" value="" readonly >
             </div>
-
-            <div class="row g-3">
             <!-- Time Stamp -->
             <input type="text" id="timestamp" name="Time Stamp" readonly style="display: none;">
 
             <!-- Enquiry Capture By -->
             <div class="col-md-4" id="captureBy">
-                <label for="captureBy" class="form-label">Enquiry Capture By</label>
+                <!-- <label for="captureBy" class="form-label">Enquiry Capture By</label> -->
                 <select name="Enquiry Capture By" class="form-select" id="captureByDropDown" required>
-                    <option value="">Select</option>
+                    <option value="">Enquiry Capture By</option>
                 </select>
             </div>
 
             <!-- Enquiry Allocated to --> 
             <div class="col-md-4">
-                <label for="allocatedToDropDown" class="form-label">Enquiry Allocated To</label>
+                <!-- <label for="allocatedToDropDown" class="form-label">Enquiry Allocated To</label> -->
                 <select name="Enquiry Allocated To" class="form-select" id="allocatedToDropDown" required>
-                    <option value="">Select</option>
+                    <option value="">Enquiry Allocated To</option>
                 </select>
             </div>
-            <hr class="my-4">
-
+        
+              <div class="legend mt-5">Customer Details</div>
               <!-- Customer Name -->
               <div class="col-sm-6">
-                <label  for="firstName" class="form-label">Customer Name</label>
+                <label  for="firstName" class="form-label">Customer Name <span class="text-body-secondary">( Full Name )</span></label>
                 <input name="Customer Name" type="text" class="form-control" id="firstName" placeholder="" value="" required="">
               </div>
   
-              <!-- Contact Number -->
+              <!-- Contact Number ( Whatsapp Number ) -->
               <div class="col-sm-6">
-                <label for="lastName" class="form-label">Phone Number</label>
+                <label for="lastName" class="form-label">Preferred Number <span class="text-body-secondary">( WhatsApp No. )</span></label>
                 <input name="Phone Number" type="number" class="form-control" id="lastName" placeholder="" value="" required="">
               </div>
   
-              <!-- Customer Whatsapp No -->
-              <div class="col-12">
-                <label for="whatsappNumber" class="form-label">Whatsapp No. <span class="text-body-secondary">(Optional)</span></label>
-                <input name="Whatsapp Number" type="number" class="form-control" id="whatsappNumber" placeholder="Customer Whatsapp Number">
+              <!-- Alternative No -->
+              <div class="col-6">
+                <label for="whatsappNumber" class="form-label">Alternative Number. <span class="text-body-secondary">(Optional)</span></label>
+                <input name="Whatsapp Number" type="number" class="form-control" id="whatsappNumber" placeholder="">
               </div>
-  
-              <!-- Customer Address -->
-              <div class="col-12">
-                <label for="address" class="form-label">Address</label>
-                <input name="Address" type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+
+              <!-- Customer Occupation -->
+              <div class="col-6">
+                <label for="Occupation" class="form-label">Occupation<span class="text-body-secondary"></span></label>
+                <select name="Occupation" class="form-select" id="Occupation" required>
+                  <option value="">Select</option>
+                  <option value="">Salaried Employee (Private Sector)</option>
+                  <option value="">Salaried Employee (Government Sector)</option>
+                  <option value="">Profession with ITR (eg. Doctor, Lawyer, CA, Engineer, etc.)</option>
+                  <option value="">Profession without ITR (eg. Driver, Contractor, Journalist, Free Lancer, etc.)</option>
+                  <option value="">Business with ITR</option>
+                  <option value="">Business without ITR</option>
+                  <option value="">Defence/Police Personnel</option>
+                  <option value="">Retired Government Employee/Pensioner</option>
+                  <option value="">Ex-Servicemen (eg. Army, CISF, BSF, CRPF, Air Force, etc.)</option>
+                  <option value="">Daily Wage Worker (Labour)</option>
+                  <option value="">Housewife</option>
+                  <option value="">Student</option>
+                  <option value="">Unemployed</option>
+                  <option value="">Others</option>
+                </select>
+              </div>
+
+              <!-- Customer Email -->
+              <div class="col-md-6">
+                <label for="zip" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
+                <input name="email" type="email" class="form-control" id="email" placeholder="Customer Email Address" required>
               </div>
 
               <!-- Zip Code -->
@@ -77,25 +99,30 @@
                 <label for="zip" class="form-label">Zip</label>
                 <input name="Zip Code" type="number" class="form-control" id="zip" placeholder="Enter Pin Code" required>
               </div>
+
               <!-- District -->
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <label for="district" class="form-label">District</label>
                 <select name="District" class="form-select" id="district" required>
                     <option value="">Select District</option>
                 </select>
-              </div> 
+              </div>  
 
-            <!-- Inquiry Model -->
-            <div class="col-md-4">
-              <label for="modelName" class="form-label">Model Name</label>
-              <select name="Model Name" class="form-select" id="modelName" required>
-                  <option value="">Select Model</option>
-              </select>
-            </div> 
-
-            <hr class="my-4">
+              <!-- Customer Address -->
+              <div class="col-12">
+                <label for="address" class="form-label">Address <span class="text-body-secondary">( Full Address )</span></label>
+                <textarea rows="3" name="Address" type="text" class="form-control" id="address" placeholder="1234 Main St, Apartment 5B, Springfield, IL, 62704" required=""></textarea>
+              </div>
 
             <!-- Purchase Type And Enquiry Status -->
+             <div class="legend mt-5">Enquiry Details</div>
+              <!-- Inquiry Model -->
+              <div class="col-md-4">
+                <label for="modelName" class="form-label">Model Name</label>
+                <select name="Model Name" class="form-select" id="modelName" required>
+                    <option value="">Select Model</option>
+                </select>
+              </div>
              <div class="row d-flex">
                 <!-- Purchase Type -->
                 <div class="my-3 col-12 col-md-6">
@@ -130,8 +157,7 @@
                     </div>
                 </div>
              </div>
-             
-
+            
              <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
                   <!-- Enquiry Source -->
                   <div class="w-50">
@@ -211,7 +237,6 @@
     <script>
     // Submit Form
     document.getElementById("enquiryForm").addEventListener("submit",function(e){e.preventDefault();const t=e.target,n=new FormData(t),o=new URLSearchParams;for(const e of n)o.append(e[0],e[1]);const s=t.querySelector('button[type="submit"]');s.disabled=!0;const r=document.createElement("div");t.appendChild(r),fetch("https://script.google.com/macros/s/AKfycbxa2jP7Dlb0gFc5B34Ku2JCOian1tCUdzoV-XQQCfdk01-7NmHWMfqw0i6FJkMD5KVaaw/exec",{method:"POST",body:o}).then(e=>e.json()).then(n=>{alert("Form submitted successfully!"),s.disabled=!1,window.location.reload()}).catch(e=>{console.error("Error:",e),alert("An error occurred while submitting the form."),s.disabled=!1})});
-
     // Reset Form
     document.getElementById("reset").addEventListener("click",function(){location.reload()});
     </script>
