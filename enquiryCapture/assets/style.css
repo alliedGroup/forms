@@ -71,3 +71,47 @@ legend.customer{
 input{
     margin: ;
 }
+
+
+
+/* Extras */
+.customRadioBtn input[type="radio"] {
+    display: none;
+  }
+  .customRadioBtn .form-check{
+    padding-left: 0;
+  }
+  .customRadioBtn label {
+    position: relative;
+    color: #b71c1c;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8em;
+    border: 1px solid #b71c1c;
+    padding: 2.5px 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+  }
+  .customRadioBtn label:before {
+    content: "";
+    height: 15px;
+    width: auto;
+    aspect-ratio: 1/1;
+    border: 2px solid #b71c1c;
+    border-radius: 50%;
+  }
+  
+  input[type="radio"]:checked + label:before {
+    height: 15px;
+    width: auto;
+    aspect-ratio: 1/1;
+    border: 2px solid #ffffff;
+    background-color: #ffffff;
+  }
+  
+  input[type="radio"]:checked + label {
+    background-color: #b71c1c;
+    color: #ffffff;
+  }

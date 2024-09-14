@@ -116,6 +116,7 @@
 
             <!-- Purchase Type And Enquiry Status -->
              <div class="legend mt-5">Enquiry Details</div>
+
               <!-- Inquiry Model -->
               <div class="col-md-4">
                 <label for="modelName" class="form-label">Model Name</label>
@@ -123,42 +124,65 @@
                     <option value="">Select Model</option>
                 </select>
               </div>
-             <div class="row d-flex">
+
                 <!-- Purchase Type -->
-                <div class="my-3 col-12 col-md-6">
+                <div class="my-3 col-12 col-md-6 customRadioBtn">
                     <div class="mb-3 fs-4">Purchase Type</div>
-                    <div class="form-check">
-                        <input id="cash" name="Purchase Type" type="radio" class="form-check-input" value="Cash" required>
-                        <label class="form-check-label" for="cash">Cash</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="finance" name="Purchase Type" type="radio" class="form-check-input" value="Finance" required>
-                        <label class="form-check-label" for="finance">Finance</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="notDecided" name="Purchase Type" type="radio" class="form-check-input" value="Not Decided" required>
-                        <label class="form-check-label" for="notDecided">Not Decided</label>
+                    <div class="d-flex">
+                        <div class="form-check">
+                            <input id="cash" name="Purchase Type" type="radio" class="form-check-input" value="Cash" required>
+                            <label class="form-check-label" for="cash">Cash</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="finance" name="Purchase Type" type="radio" class="form-check-input" value="Finance" required>
+                            <label class="form-check-label" for="finance">Finance</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="notDecided" name="Purchase Type" type="radio" class="form-check-input" value="Not Decided" required>
+                            <label class="form-check-label" for="notDecided">Not Sure</label>
+                        </div>
                     </div>
                 </div>
+
+
+              
+             <div class="row d-flex">
+                
                 <!-- Enquiry Status -->
-                <div class="my-3 col-12 col-md-6">
+                <div class="my-3 col-12 col-md-6 customRadioBtn">
                     <div class="mb-3 fs-4">Enquiry Status</div>
-                    <div class="form-check">
-                        <input id="Hot" name="Enquiry Status" type="radio" class="form-check-input" value="Hot" required>
-                        <label class="form-check-label" for="Hot">Hot</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="Warm" name="Enquiry Status" type="radio" class="form-check-input" value="Warm" required>
-                        <label class="form-check-label" for="Warm">Warm</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="Cold" name="Enquiry Status" type="radio" class="form-check-input" value="Cold" required>
-                        <label class="form-check-label" for="Cold">Cold</label>
+                    <div class="d-flex">
+                        <div class="form-check">
+                            <input id="Hot" name="Enquiry Status" type="radio" class="form-check-input" value="Hot" required>
+                            <label class="form-check-label" for="Hot">Hot</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="Warm" name="Enquiry Status" type="radio" class="form-check-input" value="Warm" required>
+                            <label class="form-check-label" for="Warm">Warm</label>
+                        </div>
+                        <div class="form-check">
+                          <input id="Cold" name="Enquiry Status" type="radio" class="form-check-input" value="Cold" required>
+                          <label class="form-check-label" for="Cold">Cold</label>
+                        </div>
                     </div>
                 </div>
              </div>
+             <!-- Test Drive -->
+             <div class="my-3 col-12 col-md-63 customRadioBtn">
+                <div class="mb-3 fs-4">Test Ride</div>
+                  <div class="d-flex">
+                      <div class="form-check">
+                          <input id="Yes" name="Test Ride" type="radio" class="form-check-input" value="Yes" required>
+                          <label class="form-check-label" for="Yes">Yes</label>
+                      </div>
+                      <div class="form-check">
+                          <input id="No" name="Test Ride" type="radio" class="form-check-input" value="No" required>
+                          <label class="form-check-label" for="No">No</label>
+                      </div>
+                  </div>
+                </div>
             
-             <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
+                <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
                   <!-- Enquiry Source -->
                   <div class="w-50">
                   <div class="mb-3 fs-4">Enquiry Source</div>
@@ -193,23 +217,12 @@
                   </div>
                 </div>
 
-                <!-- Test Drive -->
-                <div class="my-3 col-12 col-md-6">
-                    <div class="mb-3 fs-4">Test Ride</div>
-                    <div class="form-check">
-                        <input id="Yes" name="Test Ride" type="radio" class="form-check-input" value="Yes" required>
-                        <label class="form-check-label" for="Yes">Yes</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="No" name="Test Ride" type="radio" class="form-check-input" value="No" required>
-                        <label class="form-check-label" for="No">No</label>
-                    </div>
-                </div>
+                
              </div>
             <!--Remarks & FollowUp  -->
              <div class="my-3 col-12 col-md-6">
                 <div class="mb-1 fs-4">Remarks</div>
-                <p class="text-body-secondary">*Whilst capturing remarks, mention Customer Profile,DP,Fiannce,Exchange:Yes/No and Actual remarks*</p>
+                <p class="text-body-secondary">*While capturing remarks, mention Customer Profile,DP,Fiannce,Exchange:Yes/No and Actual remarks*</p>
                 <textarea name="Remarks" id="Remarks" placeholder="Enter Remarks here" class="rounded my-2 py-1 px-3 border w-100"></textarea>
              </div>
 
