@@ -33,7 +33,7 @@
 
 .title{
     h1{
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
         font-weight: bold;
     }
 }
