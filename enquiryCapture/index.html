@@ -116,41 +116,40 @@
 
             <!-- Purchase Type And Enquiry Status -->
              <div class="legend mt-5">Enquiry Details</div>
+             <div class="d-flex justify-content-between">
+                    <!-- Inquiry Model -->
+                    <div class="col-md-4">
+                      <label for="modelName" class="form-label">Model Name</label>
+                      <select name="Model Name" class="form-select" id="modelName" required>
+                          <option value="">Select Model</option>
+                      </select>
+                    </div>
 
-              <!-- Inquiry Model -->
-              <div class="col-md-4">
-                <label for="modelName" class="form-label">Model Name</label>
-                <select name="Model Name" class="form-select" id="modelName" required>
-                    <option value="">Select Model</option>
-                </select>
-              </div>
-
-                <!-- Purchase Type -->
-                <div class="my-3 col-12 col-md-6 customRadioBtn">
-                    <div class="mb-3 fs-4">Purchase Type</div>
-                    <div class="d-flex">
-                        <div class="form-check">
-                            <input id="cash" name="Purchase Type" type="radio" class="form-check-input" value="Cash" required>
-                            <label class="form-check-label" for="cash">Cash</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="finance" name="Purchase Type" type="radio" class="form-check-input" value="Finance" required>
-                            <label class="form-check-label" for="finance">Finance</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="notDecided" name="Purchase Type" type="radio" class="form-check-input" value="Not Decided" required>
-                            <label class="form-check-label" for="notDecided">Not Sure</label>
+                    <!-- Purchase Type -->
+                    <div class="col-12 col-md-6 customRadioBtn">
+                        <div class="mb-3">Purchase Type</div>
+                          <div class="d-flex">
+                              <div class="form-check">
+                                  <input id="cash" name="Purchase Type" type="radio" class="form-check-input" value="Cash" required>
+                                  <label class="form-check-label" for="cash">Cash</label>
+                              </div>
+                              <div class="form-check">
+                                  <input id="finance" name="Purchase Type" type="radio" class="form-check-input" value="Finance" required>
+                                  <label class="form-check-label" for="finance">Finance</label>
+                              </div>
+                              <div class="form-check">
+                                  <input id="notDecided" name="Purchase Type" type="radio" class="form-check-input" value="Not Decided" required>
+                                  <label class="form-check-label" for="notDecided">Not Sure</label>
+                              </div>
                         </div>
                     </div>
-                </div>
+             </div>
 
-
-              
              <div class="row d-flex">
-                
+              
                 <!-- Enquiry Status -->
                 <div class="my-3 col-12 col-md-6 customRadioBtn">
-                    <div class="mb-3 fs-4">Enquiry Status</div>
+                    <div class="mb-3">Enquiry Status</div>
                     <div class="d-flex">
                         <div class="form-check">
                             <input id="Hot" name="Enquiry Status" type="radio" class="form-check-input" value="Hot" required>
@@ -166,27 +165,30 @@
                         </div>
                     </div>
                 </div>
-             </div>
-             <!-- Test Drive -->
-             <div class="my-3 col-12 col-md-63 customRadioBtn">
-                <div class="mb-3 fs-4">Test Ride</div>
-                  <div class="d-flex">
-                      <div class="form-check">
-                          <input id="Yes" name="Test Ride" type="radio" class="form-check-input" value="Yes" required>
-                          <label class="form-check-label" for="Yes">Yes</label>
-                      </div>
-                      <div class="form-check">
-                          <input id="No" name="Test Ride" type="radio" class="form-check-input" value="No" required>
-                          <label class="form-check-label" for="No">No</label>
-                      </div>
-                  </div>
+
+                <!-- Test Drive -->
+                <div class="my-3 col-12 col-md-6 customRadioBtn">
+                  <div class="mb-3">Test Ride</div>
+                    <div class="d-flex">
+                        <div class="form-check">
+                            <input id="Yes" name="Test Ride" type="radio" class="form-check-input" value="Yes" required>
+                            <label class="form-check-label" for="Yes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="No" name="Test Ride" type="radio" class="form-check-input" value="No" required>
+                            <label class="form-check-label" for="No">No</label>
+                        </div>
+                    </div>
                 </div>
+
+             </div>
+             
             
                 <div style="display: flex; align-items: baseline; flex-wrap: wrap;">
                   <!-- Enquiry Source -->
-                  <div class="w-50">
-                  <div class="mb-3 fs-4">Enquiry Source</div>
-                  <div class="my-3">
+                  <div class="w-100">
+                  <div class="mb-3">Enquiry Source</div>
+                  <div class="my-3 customRadioBtn d-flex">
                           <!-- Showroom -->
                           <div class="form-check">
                               <input id="Showroom" name="Enquiry Source" type="radio" class="form-check-input" required value="Showroom">
@@ -213,7 +215,9 @@
                               <select name="" id="digitalPromotionDropdown" style="display: none;" class="rounded my-2 py-1 px-3 border">
                                   <option value="">Select Source</option>
                               </select>
-                          </div>      
+                          </div> 
+                          
+                          
                   </div>
                 </div>
 
