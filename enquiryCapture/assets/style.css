@@ -1,6 +1,13 @@
 :root{
-    --redLight: #fcdadd;
-    --redDark :#b71c1c;
+    --secondary: #eeeeee;
+    --primary :#3e3749;
+}
+body{
+  height: 100dvh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
@@ -20,7 +27,7 @@
 /* Fieldset */
 legend.dse{
     display: inline-block;
-    background: var(--redLight) ;
+    background: var(--secondary) ;
     width: auto;
     padding: 0px 15px;
     border-radius: 25px;
@@ -32,7 +39,7 @@ legend.dse{
 }
 legend.customer{
     display: block;
-    background: var(--redDark) ;
+    background: var(--primary) ;
     width: 100%;
     padding: 0px 15px;
     border-radius: 25px;
@@ -47,7 +54,7 @@ legend.customer{
     position: relative;
     left:20px;
     margin-bottom: 20px;
-    color: var(--redDark);
+    color: var(--primary);
 }
 .legend::before{
     content: '';
@@ -57,7 +64,7 @@ legend.customer{
     border-radius: 25px;
     z-index: -1;
     position: absolute;
-    background: var(--redLight);
+    background: var(--secondary);
     left: -15px;
 }
 .legend::after{
@@ -65,17 +72,12 @@ legend.customer{
     display: inline-block;
     width: 90%;
     height: 1px;
-    background: var(--redLight);
+    background: var(--secondary);
     position: absolute;
     /* left: -15px; */
     right: 25px;
     top:13px;
     z-index: -2;
-}
-
-/* Input */
-input{
-    margin: ;
 }
 
 
@@ -89,23 +91,23 @@ input{
   }
   .customRadioBtn label {
     position: relative;
-    color: var(--redDark);
+    color: var(--primary);
     font-family: "Poppins", sans-serif;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 0.8em;
-    border: 1px solid var(--redLight);
+    border: 1px solid var(--secondary);
     padding: 2.5px 10px;
     border-radius: 20px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
   }
   .customRadioBtn label:before {
     content: "";
     height: 15px;
     width: auto;
     aspect-ratio: 1/1;
-    border: 2px solid var(--redLight);
+    border: 2px solid var(--secondary);
     border-radius: 50%;
   }
   
@@ -113,12 +115,12 @@ input{
     height: 15px;
     width: auto;
     aspect-ratio: 1/1;
-    border: 1px solid var(--redDark);
+    border: 1px solid var(--primary);
     background-color: #ffffff;
   }
   
   input[type="radio"]:checked + label {
-    background-color: var(--redLight);
-    color: var(--redDark);
-    border: 1px solid var(--redDark);
+    background-color: var(--secondary);
+    color: var(--primary);
+    border: 1px solid var(--primary);
   }
