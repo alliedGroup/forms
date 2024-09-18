@@ -1,5 +1,22 @@
-// Sheet URL
-let sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT8awxAlRxMsjyyvxaKEqKe4nKOBGhiTNgdSDB0Kv4Rebx9NlzF-hzfnGa3Vip2Toescov23FxzxAow'
+// Sheet URL (Published As CSV File And use the CSV File Link)
+const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT8awxAlRxMsjyyvxaKEqKe4nKOBGhiTNgdSDB0Kv4Rebx9NlzF-hzfnGa3Vip2Toescov23FxzxAow';
+const sourceUrl = sheetUrl + '/pub?output=csv';
+
+// Store CSV data globally
+let csvData = null;
+
+// Fetch and store CSV data once
+async function fetchCsvData() {
+    if (!csvData) {
+        try {
+            const response = await fetch(sourceUrl);
+            const data = await response.text();
+            csvData = data.split('\n').map(row => row.split(','));
+        } catch (error) {
+            console.error('Error fetching CSV:', error);
+        }
+    }
+}
 
 // Fetch District From Zip Code
 document.getElementById('zip').addEventListener('input', fetchDistrict);
@@ -33,55 +50,129 @@ async function fetchDistrict() {
     }
 }
 
-// Enquiry Source
+// Enquiry Source Event Handling
 const showroomDropdown = document.getElementById('showroomDropdown');
 const fieldDropdown = document.getElementById('fieldDropdown');
+const fieldLocation = document.getElementById('fieldLocation');
 const digitalPromotionDropdown = document.getElementById('digitalPromotionDropdown');
-    document.querySelectorAll('input[name="Enquiry Source"]').forEach((radio) => {
-        radio.addEventListener('change', (event) => {
-            if (event.target.id === 'Showroom') {
-                fetchOptions();
-                document.querySelector("#fieldLocation").style.display ='none';
-                showroomDropdown.style.display = 'block';
-                fieldDropdown.style.display = 'none';
-                digitalPromotionDropdown.style.display = 'none';
-                fieldDropdown.setAttribute("name", "");
-                digitalPromotionDropdown.setAttribute("name", "");
-                showroomDropdown.setAttribute("name", "Enquiry Type");
-                async function fetchOptions(){const e=sheetUrl+'/pub?output=csv';try{const t=await fetch(e),n=await t.text(),o=n.split('\n'),r=[];for(let e=1;e<o.length;e++){const t=o[e].split(',');t[3]&&t[3].trim()!==''&&r.push(t[3].trim())}const s=document.getElementById('showroomDropdown');r.forEach(e=>{const t=document.createElement('option');t.value=e,t.textContent=e,s.appendChild(t)})}catch(e){console.error('Error fetching options:',e)}};
-            } else if (event.target.id === 'Field') {
-                fetchOptions();
-                showroomDropdown.style.display = 'none';
-                fieldDropdown.style.display = 'block';
-                document.querySelector("#fieldLocation").style.display ='block';
-                digitalPromotionDropdown.style.display = 'none';
-                async function fetchOptions(){const e=sheetUrl+'/pub?output=csv';try{const t=await fetch(e),n=await t.text(),o=n.split('\n'),r=[];for(let e=1;e<o.length;e++){const t=o[e].split(',');t[4]&&t[4].trim()!==''&&r.push(t[4].trim())}const s=document.getElementById('fieldDropdown');r.forEach(e=>{const t=document.createElement('option');t.value=e,t.textContent=e,s.appendChild(t)})}catch(e){console.error('Error fetching options:',e)}};
-                showroomDropdown.setAttribute("name", "")
-                digitalPromotionDropdown.setAttribute("name", "")
-                fieldDropdown.setAttribute("name", "Enquiry Type");
-            } else if (event.target.id === 'DigitalPromotion') {
-                document.querySelector("#fieldLocation").style.display ='none';
-                fetchOptions();
-                showroomDropdown.style.display = 'none';
-                fieldDropdown.style.display = 'none';
-                digitalPromotionDropdown.style.display = 'block';
-                async function fetchOptions(){const e=sheetUrl+'/pub?output=csv';try{const t=await fetch(e),n=await t.text(),o=n.split('\n'),r=[];for(let e=1;e<o.length;e++){const t=o[e].split(',');t[5]&&t[5].trim()!==''&&r.push(t[5].trim())}const s=document.getElementById('digitalPromotionDropdown');r.forEach(e=>{const t=document.createElement('option');t.value=e,t.textContent=e,s.appendChild(t)})}catch(e){console.error('Error fetching options:',e)}};
-                showroomDropdown.setAttribute("name", "")
-                fieldDropdown.setAttribute("name", "");
-                digitalPromotionDropdown.setAttribute("name", "Enquiry Type");
-            }
-        });
+
+document.querySelectorAll('input[name="Enquiry Source"]').forEach((radio) => {
+    radio.addEventListener('change', async (event) => {
+        await fetchCsvData(); // Ensure CSV data is available
+        switch (event.target.id) {
+            case 'Showroom':
+                handleEnquirySource(3, showroomDropdown, 'Enquiry Type');
+                // Hide Other Option
+                fieldDropdown.style.display = "none";
+                fieldLocation.style.display = "none";
+                digitalPromotionDropdown.style.display = "none";
+                break;
+            case 'Field':
+                handleEnquirySource(4, fieldDropdown, 'Enquiry Type');
+                fieldLocation.style.display = "block";
+                // Hide Other Option
+                showroomDropdown.style.display = "none";
+                digitalPromotionDropdown.style.display = "none";
+                break;
+            case 'DigitalPromotion':
+                handleEnquirySource(5, digitalPromotionDropdown, 'Enquiry Type');
+                // Hide Other Option
+                showroomDropdown.style.display = "none";
+                fieldLocation.style.display = "none";
+                fieldDropdown.style.display = "none";
+                break;
+        }
     });
+});
 
-    
+function handleEnquirySource(columnIndex, dropdownElement, nameAttribute) {
+    document.querySelectorAll('.dropdown').forEach(dropdown => dropdown.style.display = 'none');
+    dropdownElement.innerHTML = '<option value="">Select Source</option>';
+    const options = [...new Set(csvData.slice(1).map(row => row[columnIndex].trim()).filter(Boolean))];
+    options.forEach(option => {
+        const optionElement = document.createElement('option');
+        optionElement.value = option;
+        optionElement.textContent = option;
+        dropdownElement.appendChild(optionElement);
+    });
+    dropdownElement.style.display = 'block';
+    dropdownElement.setAttribute('name', nameAttribute);
+}
+
 // Fetch options for Enquiry Capture By
-async function fetchCaptureByOptions(){const url=sheetUrl+'/pub?output=csv';try{const response=await fetch(url);const data=await response.text();const rows=data.split('\n');const options=[];for(let i=1;i<rows.length;i++){const cells=rows[i].split(',');if(cells[6]&&cells[6].trim()!==''){options.push(cells[6].trim());}}const select=document.getElementById('captureByDropDown');options.forEach(option=>{const optionElement=document.createElement('option');optionElement.value=option;optionElement.textContent=option;select.appendChild(optionElement);});}catch(error){console.error('Error fetching options:',error);}}fetchCaptureByOptions();
+async function fetchCaptureByOptions() {
+    await fetchCsvData();
+    const captureByOptions = [...new Set(csvData.slice(1).map(row => row[6].trim()).filter(Boolean))];
+    populateDropdown('captureByDropDown', captureByOptions);
+}
+fetchCaptureByOptions();
 
-//Fetch options for Enquiry Allocated To
-async function fetchAllocatedOptions(){const url=sheetUrl+'/pub?output=csv';try{const response=await fetch(url);const data=await response.text();const rows=data.split('\n');const options=[];for(let i=1;i<rows.length;i++){const cells=rows[i].split(',');if(cells[6]&&cells[6].trim()!==''){options.push(cells[6].trim());}}const select=document.getElementById('allocatedToDropDown');options.forEach(option=>{const optionElement=document.createElement('option');optionElement.value=option;optionElement.textContent=option;select.appendChild(optionElement);});}catch(error){console.error('Error fetching options:',error);}}fetchAllocatedOptions();
-
-// Timestamp and Enquiry ID
-function updateTimestamp(){const e=new Date,t=("0"+e.getDate()).slice(-2)+"/"+("0"+(e.getMonth()+1)).slice(-2)+"/"+e.getFullYear()+" "+("0"+e.getHours()).slice(-2)+":"+("0"+e.getMinutes()).slice(-2)+":"+("0"+e.getSeconds()).slice(-2);document.getElementById("timestamp").value=t}setInterval(updateTimestamp,1e3),document.getElementById("enquiryForm").addEventListener("submit",function(e){e.preventDefault(),updateTimestamp()});function generateUniqueId(){const e=new Date,t=e.toLocaleDateString("en-IN",{day:"2-digit",month:"2-digit",year:"2-digit"}).replace(/\//g,""),n=("0"+e.getHours()).slice(-2)+("0"+e.getMinutes()).slice(-2)+("0"+e.getSeconds()).slice(-2);document.getElementById("enquiryId").value="EQ"+t+"-"+n}generateUniqueId();
+// Fetch options for Enquiry Allocated To
+async function fetchAllocatedOptions() {
+    await fetchCsvData();
+    const allocatedToOptions = [...new Set(csvData.slice(1).map(row => row[6].trim()).filter(Boolean))];
+    populateDropdown('allocatedToDropDown', allocatedToOptions);
+}
+fetchAllocatedOptions();
 
 // Fetch Option For Enquiry Model
-async function fetchModelOptions(){const url=sheetUrl+'/pub?output=csv';try{const response=await fetch(url);const data=await response.text();const rows=data.split('\n');const options=[];for(let i=1;i<rows.length;i++){const cells=rows[i].split(',');if(cells[1]&&cells[1].trim()!==''){options.push(cells[1].trim());}}const select=document.getElementById('modelName');options.forEach(option=>{const optionElement=document.createElement('option');optionElement.value=option;optionElement.textContent=option;select.appendChild(optionElement);});}catch(error){console.error('Error fetching options:',error);}}fetchModelOptions();
+async function fetchModelOptions() {
+    await fetchCsvData();
+    const modelOptions = [...new Set(csvData.slice(1).map(row => row[1].trim()).filter(Boolean))];
+    populateDropdown('modelName', modelOptions);
+}
+fetchModelOptions();
+
+// Fetch Option For Occupation
+async function fetchOccupationOptions() {
+    await fetchCsvData();
+    const occupationOptions = [...new Set(csvData.slice(1).map(row => row[7].trim()).filter(Boolean))];
+    populateDropdown('Occupation', occupationOptions);
+}
+fetchOccupationOptions();
+
+// Populate Dropdown Helper Function
+function populateDropdown(dropdownId, options) {
+    const selectElement = document.getElementById(dropdownId);
+    selectElement.innerHTML = '<option value="">Select Option</option>';
+    options.forEach(option => {
+        const optionElement = document.createElement('option');
+        optionElement.value = option;
+        optionElement.textContent = option;
+        selectElement.appendChild(optionElement);
+    });
+}
+
+// Timestamp and Enquiry ID
+function updateTimestamp() {
+    const now = new Date();
+    const timestamp = ("0" + now.getDate()).slice(-2) + "/" + ("0" + (now.getMonth() + 1)).slice(-2) + "/" + now.getFullYear() + " " + ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2) + ":" + ("0" + now.getSeconds()).slice(-2);
+    document.getElementById("timestamp").value = timestamp;
+}
+setInterval(updateTimestamp, 1000);
+
+document.getElementById("enquiryForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    updateTimestamp();
+});
+
+function generateUniqueId() {
+    const now = new Date();
+    const datePart = now.toLocaleDateString("en-IN", { day: "2-digit", month: "2-digit", year: "2-digit" }).replace(/\//g, "");
+    const timePart = ("0" + now.getHours()).slice(-2) + ("0" + now.getMinutes()).slice(-2) + ("0" + now.getSeconds()).slice(-2);
+    document.getElementById("enquiryId").value = "EQ" + datePart + "-" + timePart;
+}
+generateUniqueId();
+
+// Reset Form
+document.querySelector("#reset").addEventListener('click', () => {
+    document.querySelectorAll('.dropdown').forEach(dropdown => dropdown.style.display = 'none');
+});
+
+// Reset Form
+document.querySelector("#reset").addEventListener('click', ()=>{
+    showroomDropdown.style.display = 'none';
+    fieldDropdown.style.display = 'none';
+    fieldLocation.style.display = 'none';
+    digitalPromotionDropdown.style.display = 'none';
+})

@@ -1,13 +1,22 @@
+/* Universal Values */
 :root{
     --secondary: #eeeeee;
     --primary :#3e3749;
 }
+
+/* Body */
 body{
   height: 100dvh;
   width: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
 }
 
 
@@ -80,9 +89,7 @@ legend.customer{
     z-index: -2;
 }
 
-
-
-/* Extras */
+/* Custom Radio Button */
 .customRadioBtn input[type="radio"] {
     display: none;
   }
@@ -100,7 +107,6 @@ legend.customer{
     border: 1px solid var(--secondary);
     padding: 2.5px 10px;
     border-radius: 20px;
-    /* margin-right: 10px; */
   }
   .customRadioBtn label:before {
     content: "";
@@ -124,3 +130,20 @@ legend.customer{
     color: var(--primary);
     border: 1px solid var(--primary);
   }
+
+/* Succeess Message*/
+#successMessage{
+  height: 100dvh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* Drop Down */
+select option {
+  text-transform: capitalize;
+}
