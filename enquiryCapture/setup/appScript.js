@@ -1,6 +1,9 @@
-const sheetName = 'enquiryResponse';
-const scriptProp = PropertiesService.getScriptProperties();
+// Update The Sheet Name Below Then deploy it as web app then use the (URL) in HTML form to submit data. (in index.html file)
 
+// Sheet Name Where Enquiry Data Will Be Submited
+const sheetName = 'enquiryCapture';
+
+const scriptProp = PropertiesService.getScriptProperties();
 function intialSetup() {
   const activeSpreadsheet = SpreadsheetApp.getActiveSpreadsheet();
   scriptProp.setProperty('key', activeSpreadsheet.getId());
