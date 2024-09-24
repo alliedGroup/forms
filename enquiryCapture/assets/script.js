@@ -1,6 +1,5 @@
-// Sheet URL (Published As CSV File And use the CSV File Link)
-const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQdXUdGL6DN4CwP3mMVmUQv6M9ZCOshTjxIYKGynpPhnzTi8ZoV8_YEu-vEI72nS9Yf6ZnyaYOi48V8';
-const sourceUrl = sheetUrl + '/pub?output=csv';
+// Sheet URL ( Publish "Confrigation" Sheet As CSV File And use the CSV Link Here )
+const sourceUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQdXUdGL6DN4CwP3mMVmUQv6M9ZCOshTjxIYKGynpPhnzTi8ZoV8_YEu-vEI72nS9Yf6ZnyaYOi48V8/pub?gid=326358480&single=true&output=csv';
 
 // Store CSV data globally
 let csvData = null;
@@ -61,21 +60,21 @@ document.querySelectorAll('input[name="Enquiry Source"]').forEach((radio) => {
         await fetchCsvData(); // Ensure CSV data is available
         switch (event.target.id) {
             case 'Showroom':
-                handleEnquirySource(3, showroomDropdown, 'Enquiry Type');
+                handleEnquirySource(3, showroomDropdown, 'Showroom Enquiry Type');
                 // Hide Other Option
                 fieldDropdown.style.display = "none";
                 fieldLocation.style.display = "none";
                 digitalPromotionDropdown.style.display = "none";
                 break;
             case 'Field':
-                handleEnquirySource(4, fieldDropdown, 'Enquiry Type');
+                handleEnquirySource(4, fieldDropdown, 'Field Promotion Activity Type');
                 fieldLocation.style.display = "block";
                 // Hide Other Option
                 showroomDropdown.style.display = "none";
                 digitalPromotionDropdown.style.display = "none";
                 break;
             case 'DigitalPromotion':
-                handleEnquirySource(5, digitalPromotionDropdown, 'Enquiry Type');
+                handleEnquirySource(5, digitalPromotionDropdown, 'Digital Promotion Enquiry Source');
                 // Hide Other Option
                 showroomDropdown.style.display = "none";
                 fieldLocation.style.display = "none";
