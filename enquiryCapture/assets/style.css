@@ -2,6 +2,8 @@
 :root{
     --secondary: #eeeeee;
     --primary :#3e3749;
+    --black :#212529;
+    --red : #ff0000;
 }
 
 /* Body */
@@ -18,6 +20,10 @@ body{
   width: 0;
   background: transparent;
 }
+
+/* *{
+  outline: 1px solid red;
+} */
 
 
 /* Honda Logo */
@@ -63,7 +69,7 @@ legend.customer{
     position: relative;
     left:20px;
     margin-bottom: 20px;
-    color: var(--primary);
+    color: var(--secondary);
 }
 .legend::before{
     content: '';
@@ -73,7 +79,7 @@ legend.customer{
     border-radius: 25px;
     z-index: -1;
     position: absolute;
-    background: var(--secondary);
+    background: var(--black);
     left: -15px;
 }
 .legend::after{
@@ -121,13 +127,13 @@ legend.customer{
     height: 15px;
     width: auto;
     aspect-ratio: 1/1;
-    border: 1px solid var(--primary);
-    background-color: #ffffff;
+    /* border: 1px solid var(--black); */
+    background-color: var(--secondary);
   }
   
   input[type="radio"]:checked + label {
-    background-color: var(--secondary);
-    color: var(--primary);
+    background-color: var(--black);
+    color: var(--secondary);
     border: 1px solid var(--primary);
   }
 
