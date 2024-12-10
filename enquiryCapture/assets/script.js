@@ -122,6 +122,17 @@ async function fetchModelOptions() {
 }
 fetchModelOptions();
 
+// Fetch Option For Enquiry Model Color
+async function fetchModelColorOptions() {
+    await fetchCsvData();
+    const modelOptions = [...new Set(csvData.slice(1).map(row => row[2].trim()).filter(Boolean))];
+    populateDropdown('modelColor', modelOptions);
+}
+fetchModelColorOptions();
+
+
+
+
 // Fetch Option For Occupation
 async function fetchOccupationOptions() {
     await fetchCsvData();

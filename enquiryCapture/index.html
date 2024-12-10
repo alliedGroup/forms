@@ -122,17 +122,24 @@
 
              <!-- Enquiry Details -->
              <div class="legend mt-5">Enquiry Details</div>
-             <div class="d-flex justify-content-between flex-wrap">
+             <div class="d-flex justify-content-between flex-wrap p-0">
 
                     <!-- Enquiry Model -->
-                    <div class="col-12 col-md-5 my-2">
+                    <div class="col-12 col-md-6 my-2 px-2">
                       <label for="modelName" class="form-label">Model Name</label>
-                      <select name="Model Name" class="form-select" id="modelName" required>
+                      <select name="Model Name" class="form-select me-2" id="modelName" required>
+                      </select>
+                    </div>
+
+                    <!-- Enquiry Model Color -->
+                    <div class="my-2 col-12 col-md-6 px-2">
+                      <label for="modelColor" class="form-label">Model Color</label>
+                      <select name="Model Color" class="form-select" id="modelColor" required>
                       </select>
                     </div>
 
                     <!-- Purchase Type -->
-                    <div class="col-12 col-md-6 customRadioBtn my-3 mt-sm-2">
+                    <div class="col-12 col-md-6 customRadioBtn my-3 mt-sm-2 px-2">
                         <div class="mb-3">Purchase Type</div>
                           <div class="d-flex gap-2 flex-wrap">
                               <div class="form-check">
@@ -149,30 +156,30 @@
                               </div>
                         </div>
                     </div>
+
+                    <!-- Enquiry Status -->
+                    <div class="my-2 col-12 col-md-6 customRadioBtn px-2">
+                      <div class="mb-3">Enquiry Status</div>
+                      <div class="d-flex flex-wrap gap-2">
+                          <div class="form-check">
+                              <input id="Hot" name="Enquiry Status" type="radio" class="form-check-input" value="Hot" required>
+                              <label class="form-check-label" for="Hot">Hot</label>
+                          </div>
+                          <div class="form-check">
+                              <input id="Warm" name="Enquiry Status" type="radio" class="form-check-input" value="Warm" required>
+                              <label class="form-check-label" for="Warm">Warm</label>
+                          </div>
+                          <div class="form-check">
+                            <input id="Cold" name="Enquiry Status" type="radio" class="form-check-input" value="Cold" required>
+                            <label class="form-check-label" for="Cold">Cold</label>
+                          </div>
+                      </div>
+                  </div>
              </div>
 
-             <div class="row d-flex">
-                <!-- Enquiry Status -->
-                <div class="my-3 col-12 col-md-6 customRadioBtn">
-                    <div class="mb-3">Enquiry Status</div>
-                    <div class="d-flex flex-wrap gap-2">
-                        <div class="form-check">
-                            <input id="Hot" name="Enquiry Status" type="radio" class="form-check-input" value="Hot" required>
-                            <label class="form-check-label" for="Hot">Hot</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="Warm" name="Enquiry Status" type="radio" class="form-check-input" value="Warm" required>
-                            <label class="form-check-label" for="Warm">Warm</label>
-                        </div>
-                        <div class="form-check">
-                          <input id="Cold" name="Enquiry Status" type="radio" class="form-check-input" value="Cold" required>
-                          <label class="form-check-label" for="Cold">Cold</label>
-                        </div>
-                    </div>
-                </div>
-
+             <div class="row d-flex gx-0">
                 <!-- Test Drive -->
-                <div class="my-3 col-12 col-md-6 customRadioBtn">
+                <div class="my-3 col-12 col-md-6 customRadioBtn px-2">
                   <div class="mb-3">Test Ride</div>
                     <div class="d-flex flex-wrap gap-2">
                         <div class="form-check">
@@ -186,9 +193,23 @@
                     </div>
                 </div>
 
+                <!-- Exchange -->
+                <div class="my-3 col-12 col-md-6 customRadioBtn px-2">
+                  <div class="mb-3">Exchange</div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <div class="form-check">
+                            <input id="exchangeYes" name="Exchange" type="radio" class="form-check-input" value="Yes" required>
+                            <label class="form-check-label" for="exchangeYes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="exchangeNo" name="Exchange" type="radio" class="form-check-input" value="No">
+                            <label class="form-check-label" for="exchangeNo">No</label>
+                        </div>
+                    </div>
+                </div>
              </div>
             
-                <div class="col-12 col-sm-6" style="display: flex; align-items: baseline; flex-wrap: wrap;">
+                <div class="col-12" style="display: flex; align-items: baseline; flex-wrap: wrap;">
                   <!-- Enquiry Source --> 
                   <div class="w-auto my-3">
                   <div class="mb-3">Enquiry Source</div>
@@ -225,20 +246,7 @@
               </div>
 
 
-              <!-- Exchange -->
-              <div class="my-3 col-12 col-md-6 customRadioBtn">
-                <div class="mb-3">Exchange</div>
-                  <div class="d-flex flex-wrap gap-2">
-                      <div class="form-check">
-                          <input id="exchangeYes" name="Exchange" type="radio" class="form-check-input" value="Yes" required>
-                          <label class="form-check-label" for="exchangeYes">Yes</label>
-                      </div>
-                      <div class="form-check">
-                          <input id="exchangeNo" name="Exchange" type="radio" class="form-check-input" value="No">
-                          <label class="form-check-label" for="exchangeNo">No</label>
-                      </div>
-                  </div>
-              </div>
+              
               
 
 
@@ -260,7 +268,7 @@
             <hr class="my-4">
 
             <!-- Submit Button -->
-            <div class="buttons p-0 d-flex justify-content-between">
+            <div class="buttons p-0 d-flex justify-content-between px-2">
               <button class="w-50 btn btn-dark btn-lg" type="submit">Submit Form</button>
               <input type="reset" id="reset" class="w-25 btn btn-outline-danger btn-lg ms-3"></input>
             </div>
