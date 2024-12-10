@@ -130,9 +130,6 @@ async function fetchModelColorOptions() {
 }
 fetchModelColorOptions();
 
-
-
-
 // Fetch Option For Occupation
 async function fetchOccupationOptions() {
     await fetchCsvData();
@@ -180,10 +177,6 @@ document.querySelectorAll('input[name="Exchange"]').forEach(radio => {
         document.getElementById("exchangeSection").style.display = radio.value === "Yes" ? "flex" : "none";
     });
 });
-
-
-
-
 
 // Reset Form
 document.querySelector("#reset").addEventListener('click', () => {
