@@ -165,14 +165,25 @@ document.getElementById("enquiryForm").addEventListener("submit", function (e) {
     e.preventDefault();
     updateTimestamp();
 });
+// function generateUniqueId() {
+//     const now = new Date();
+//     const datePart = now.toLocaleDateString("en-IN", { day: "2-digit", month: "2-digit", year: "2-digit" }).replace(/\//g, "");
+//     const timePart = ("0" + now.getHours()).slice(-2) + ("0" + now.getMinutes()).slice(-2) + ("0" + now.getSeconds()).slice(-2);
+//     document.getElementById("enquiryId").value = "EQ" + datePart + "-" + timePart;
+// }
+// generateUniqueId();
 
-function generateUniqueId() {
-    const now = new Date();
-    const datePart = now.toLocaleDateString("en-IN", { day: "2-digit", month: "2-digit", year: "2-digit" }).replace(/\//g, "");
-    const timePart = ("0" + now.getHours()).slice(-2) + ("0" + now.getMinutes()).slice(-2) + ("0" + now.getSeconds()).slice(-2);
-    document.getElementById("enquiryId").value = "EQ" + datePart + "-" + timePart;
-}
-generateUniqueId();
+
+// Exchnage Option (Show / Hide)
+document.querySelectorAll('input[name="Exchange"]').forEach(radio => {
+    radio.addEventListener("change", () => {
+        document.getElementById("exchangeSection").style.display = radio.value === "Yes" ? "flex" : "none";
+    });
+});
+
+
+
+
 
 // Reset Form
 document.querySelector("#reset").addEventListener('click', () => {
