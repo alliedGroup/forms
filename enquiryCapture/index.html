@@ -83,7 +83,7 @@
 
               <!-- Customer Email -->
               <div class="col-sm-6 my-2">
-                <label for="zip" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
+                <label for="zip" class="form-label">Email</label>
                 <input name="Email" type="email" class="form-control" id="email" required>
               </div>
 
@@ -116,7 +116,7 @@
 
               <!-- Date Of Birth -->
               <div class="my-2 col-12 col-md-6">
-                <label for="Date Of Birth" class="form-label">Date Of Birth</label>
+                <label for="Date Of Birth" class="form-label">Date Of Birth <span class="text-body-secondary">(Optional)</span></label>
                 <input type="date" name="Date Of Birth" id="date" class="form-control">
               </div>
 
@@ -193,57 +193,58 @@
                     </div>
                 </div>
 
-                <!-- Exchange -->
-                <div class="my-3 col-12 col-md-6 customRadioBtn px-2">
-                  <div class="mb-3">Exchange</div>
-                    <div class="d-flex flex-wrap gap-2">
-                        <div class="form-check">
-                            <input id="exchangeYes" name="Exchange" type="radio" class="form-check-input" value="Yes" required>
-                            <label class="form-check-label" for="exchangeYes">Yes</label>
-                        </div>
-                        <div class="form-check">
-                            <input id="exchangeNo" name="Exchange" type="radio" class="form-check-input" value="No">
-                            <label class="form-check-label" for="exchangeNo">No</label>
-                        </div>
-                    </div>
-                </div>
-             </div>
-            
-                <div class="col-12" style="display: flex; align-items: baseline; flex-wrap: wrap;">
-                  <!-- Enquiry Source --> 
-                  <div class="w-auto my-3">
+                <!-- Enquiry Source --> 
+                <div class="w-auto my-3 px-2">
                   <div class="mb-3">Enquiry Source</div>
                   <div class="customRadioBtn d-flex flex-wrap gap-2">
                           <!-- Showroom -->
-                          <div class="form-check">
+                          <div class="form-check position-relative">
                               <input id="Showroom" name="Enquiry Source" type="radio" class="form-check-input" required value="Showroom">
                               <label class="form-check-label" for="Showroom">Showroom</label>
-                              <select name="Showroom Enquiry Type" id="showroomDropdown" style="display: none;" class="rounded my-2 py-1 px-3 border">
+                              <select name="Showroom Enquiry Type" id="showroomDropdown" style="display: none;" class="rounded my-2 py-1 px-3 border position-absolute start-0">
                                   <option value="">Select Source</option>
                               </select>
                           </div>
 
                           <!-- Field -->
-                          <div class="form-check">
+                          <div class="form-check position-relative">
                               <input id="Field" name="Enquiry Source" type="radio" class="form-check-input" required value="Field">
                               <label class="form-check-label" for="Field">Field</label>
-                              <select name="Field Promotion Activity Type" id="fieldDropdown" style="display: none;" class="rounded my-2 py-1 px-3 border">
+                              <select name="Field Promotion Activity Type" id="fieldDropdown" style="display: none;" class="rounded my-2 py-1 px-3 border position-absolute">
                                   <option value="">Select Source</option>
                               </select>
-                              <textarea name="Field Location" id="fieldLocation" style="display: none;" placeholder="Field Location" class="rounded my-2 py-1 px-3 border"></textarea>
+                              <textarea name="Field Location" id="fieldLocation" style="display: none; top:70px ;" placeholder="Field Location" class="rounded my-2 py-1 px-3 border position-absolute"></textarea>
                           </div>
 
                           <!-- Digital Promotion -->
-                          <div class="form-check">
+                          <div class="form-check position-relative">
                               <input id="DigitalPromotion" name="Enquiry Source" type="radio" class="form-check-input" required value="Digital Promotion">
                               <label class="form-check-label" for="DigitalPromotion">Digital Promotion</label>
-                              <select name="Digital Promotion Enquiry Source" id="digitalPromotionDropdown" style="display: none;" class="rounded my-2 py-1 px-3 border">
+                              <select name="Digital Promotion Enquiry Source" id="digitalPromotionDropdown" style="display: none;" class="rounded my-2 py-1 px-3 border position-absolute end-0">
                                   <option value="">Select Source</option>
                               </select>
                           </div>     
                   </div>
                 </div>
-              </div>
+                
+             </div>
+            
+                <div class="col-12" style="display: flex; align-items: baseline; flex-wrap: wrap;">
+                  <!-- Exchange -->
+                  <div class="my-3 col-12 col-md-6 customRadioBtn">
+                    <div class="mb-3">Exchange</div>
+                      <div class="d-flex flex-wrap gap-2">
+                          <div class="form-check">
+                              <input id="exchangeYes" name="Exchange" type="radio" class="form-check-input" value="Yes" required>
+                              <label class="form-check-label" for="exchangeYes">Yes</label>
+                          </div>
+                          <div class="form-check">
+                              <input id="exchangeNo" name="Exchange" type="radio" class="form-check-input" value="No">
+                              <label class="form-check-label" for="exchangeNo">No</label>
+                          </div>
+                      </div>
+                  </div>
+                </div>
 
             <!-- Exchange Section -->
             <div id="exchangeSection" class="exchangeSection row gx-0" style="display:none;">

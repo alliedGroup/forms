@@ -81,7 +81,7 @@ legend.customer{
     z-index: -1;
     position: absolute;
     background: var(--black);
-    left: -15px;
+    left: -12px;
 }
 .legend::after{
     content: '';
