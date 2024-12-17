@@ -1,6 +1,21 @@
 // Sheet URL ( Publish "Confrigation" Sheet As CSV File And use the CSV Link Here )
 const sourceUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQdXUdGL6DN4CwP3mMVmUQv6M9ZCOshTjxIYKGynpPhnzTi8ZoV8_YEu-vEI72nS9Yf6ZnyaYOi48V8/pub?gid=326358480&single=true&output=csv';
 
+// Prefill Data
+// Extract URL parameters
+const urlParams = new URLSearchParams(window.location.search);
+
+// Prefill form fields
+document.getElementById("firstName").value = urlParams.get("Customer%20Name") || "";
+document.getElementById("lastName").value = urlParams.get("Phone%20Number") || "";
+document.getElementById("exModel").value = urlParams.get("EX%20Model") || "";
+document.getElementById("exMake").value = urlParams.get("EX%20Make") || "";
+document.getElementById("exRegNo").value = urlParams.get("Regn.%20No.") || "";
+document.getElementById("exYearPurchase").value = urlParams.get("Year%20of%20Purchase") || "";
+document.getElementById("exKmRun").value = urlParams.get("KM%20Run") || "";
+document.getElementById("exExpected").value = urlParams.get("Expected%20EX%20Value") || "";
+
+
 // Store CSV data globally
 let csvData = null;
 
