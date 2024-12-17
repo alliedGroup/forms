@@ -204,3 +204,16 @@ document.getElementById("exRegNo").value = urlParams.get("exRegNo") || "";
 document.getElementById("exYearPurchase").value = urlParams.get("exYearPurchase") || "";
 document.getElementById("exKmRun").value = urlParams.get("exKmRun") || "";
 document.getElementById("exExpected").value = urlParams.get("exExpected") || "";
+
+// Select "Yes" or "No" for the Exchange radio button
+const exchangeValue = urlParams.get("exchange");
+// If the exchange value is 'Yes', select the "Yes" radio and show the exchange section
+if (exchangeValue === "Yes") {
+  document.getElementById("exchangeYes").checked = true;
+  document.getElementById("exchangeSection").style.display = "flex";  // Show exchange section
+} 
+// If the exchange value is 'No', select the "No" radio and hide the exchange section
+else if (exchangeValue === "No") {
+  document.getElementById("exchangeNo").checked = true;
+  document.getElementById("exchangeSection").style.display = "none";  // Hide exchange section
+}
