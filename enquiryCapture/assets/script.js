@@ -197,6 +197,9 @@ document.querySelector("#reset").addEventListener('click', ()=>{
 const urlParams = new URLSearchParams(window.location.search);
 // Prefill form fields (Keep the parameters same as input id)
 document.getElementById("name").value = urlParams.get("name") || "";
+document.getElementById("email").value = urlParams.get("email") || "";
+document.getElementById("address").value = urlParams.get("address") || "";
+document.getElementById("zip").value = urlParams.get("pincode") || "";
 document.getElementById("phone").value = urlParams.get("phone") || "";
 document.getElementById("exModel").value = urlParams.get("exModel") || "";
 document.getElementById("exMake").value = urlParams.get("exMake") || "";
@@ -204,7 +207,6 @@ document.getElementById("exRegNo").value = urlParams.get("exRegNo") || "";
 document.getElementById("exYearPurchase").value = urlParams.get("exYearPurchase") || "";
 document.getElementById("exKmRun").value = urlParams.get("exKmRun") || "";
 document.getElementById("exExpected").value = urlParams.get("exExpected") || "";
-
 // Select "Yes" or "No" for the Exchange radio button
 const exchangeValue = urlParams.get("exchange");
 // If the exchange value is 'Yes', select the "Yes" radio and show the exchange section
