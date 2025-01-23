@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispatch Summary Capture Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+        
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 2em;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 1200px; /* Max width for large screens */
+            height: 90vh; /* Adjust height for content */
+            overflow-y: auto; /* Allow scrolling inside the form */
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"], input[type="date"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (min-width: 992px) {
+            form {
+                padding: 40px;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            input[type="submit"], button {
+                padding: 15px 20px;
+                font-size: 18px;
+            }
+        }
+    </style>
+
+    </body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container py-4 d-flex justify-content-center align-items-center min-vh-100" style="height: 100dvh; width: 100%;">
+        <form id="model-form" class="border p-4 rounded d-flex flex-wrap gx-2">
+            <h2 class="text-center mb-4">Dispatch Summary Capture Form</h2>
+
+            <div class="contentArea d-flex flex-wrap">
+                <div class="mb-3 col-12 col-sm-6">
+                    <label for="plant-name" class="form-label">Plant Name:</label>
+                    <input type="text" id="plant-name" name="Plant Name" class="form-control" required>
+                </div>
+    
+                <div class="mb-3 col-12 col-sm-6">
+                    <label for="load-ref-no" class="form-label">Load Ref. No.:</label>
+                    <input type="text" id="load-ref-no." name="Load Ref No." class="form-control" required>
+                </div>
+    
+                <div class="mb-3 col-12 col-sm-6">
+                    <label for="load-type" class="form-label">Load Type:</label>
+                    <input type="text" id="load-type" name="Load Type" class="form-control" required>
+                </div>
+    
+                <div class="mb-3 col-12 col-sm-6">
+                    <label for="load-amount" class="form-label">Load Amount:</label>
+                    <input type="number" id="load-amount" name="Load Amount" class="form-control" required>
+                </div>
+    
+                <div class="mb-3 col-12 col-sm-6">
+                    <label for="payment-plan" class="form-label">Payment Plan:</label>
+                    <input type="date" id="payment-plan" name="Payment Plan" class="form-control" required>
+                </div>
+    
+                <div class="mb-3 col-12 col-sm-6">
+                    <label for="dispatch-plan" class="form-label">Dispatch Plan:</label>
+                    <input type="date" id="dispatch-plan" name="Dispatch Plan" class="form-control" required>
+                </div>
+    
+                <div class="mb-3 col-12">
+                    <label for="remarks" class="form-label">Remarks:</label>
+                    <textarea id="remarks" name="Remarks" class="form-control" rows="4"></textarea>
+                </div>
+    
+                <div>
+        
+                    <div class="mb-4">
+                        <h3>Models</h3>
+                        <div id="model-container" class="mb-3"></div>
+                        <button type="button" class="btn btn-primary" onclick="addModelVariant()">Add Model</button>
+                    </div>
+        
+                    <div id="added-models" class="text-success"></div>
+                    <input type="submit" value="Submit" class="btn btn-success">
+                </div>
+            </div>   
+        </form>
+    
+
+
+    <script>
+        // Predefined models
+       // Predefined models
+const models = [
+    "ACTIVA",
+    "ACTIVA 125 OBD2",
+    "CB200X OBD2",
+    "CD110 DREAM OBD2",
+    "DIO 125 OBD2",
+    "DIO OBD2",
+    "HORNET 2.0 ABS OBD2",
+    "LIVO OBD2",
+    "SHINE 100",
+    "SHINE 125 OBD2",
+    "SP125 OBD2",
+    "SP160 OBD2",
+    "UNICORN OBD2"
+];
+ // Example models
+
+        // Get references to DOM elements
+        const modelContainer = document.getElementById("model-container");
+        const modelForm = document.getElementById("model-form");
+        const addedModelsDiv = document.getElementById("added-models");
+
+        // Add new model fields when the "Add Model" button is clicked
+        function addModelVariant() {
+            const modelGroup = document.createElement("div");
+            modelGroup.classList.add("mb-3", "row", "g-2");
+
+            // Create Model Name dropdown
+            const modelSelectDiv = document.createElement("div");
+            modelSelectDiv.classList.add("col-md-4");
+            const modelSelect = document.createElement("select");
+            modelSelect.classList.add("form-select");
+            modelSelect.name = "Model Name[]"; // To collect multiple values
+            models.forEach(model => {
+                const option = document.createElement("option");
+                option.value = model;
+                option.textContent = model;
+                modelSelect.appendChild(option);
+            });
+            modelSelectDiv.appendChild(modelSelect);
+
+            // Create Model Variant input
+            const modelVariantDiv = document.createElement("div");
+            modelVariantDiv.classList.add("col-md-4");
+            const modelVariant = document.createElement("input");
+            modelVariant.type = "text";
+            modelVariant.classList.add("form-control");
+            modelVariant.name = "Model Variant[]";
+            modelVariant.placeholder = "Enter model variant";
+            modelVariantDiv.appendChild(modelVariant);
+
+            // Create Model Quantity input
+            const modelQuantityDiv = document.createElement("div");
+            modelQuantityDiv.classList.add("col-md-4");
+            const modelQuantity = document.createElement("input");
+            modelQuantity.type = "number";
+            modelQuantity.classList.add("form-control");
+            modelQuantity.name = "Model Quantity[]";
+            modelQuantity.placeholder = "Enter model quantity";
+            modelQuantityDiv.appendChild(modelQuantity);
+
+            // Append fields to the group
+            modelGroup.appendChild(modelSelectDiv);
+            modelGroup.appendChild(modelVariantDiv);
+            modelGroup.appendChild(modelQuantityDiv);
+
+            // Append the model group to the container
+            modelContainer.appendChild(modelGroup);
+        }
+
+        // Handle form submission
+        modelForm.addEventListener("submit", async (e) => {
+            e.preventDefault(); // Prevent form from submitting the default way
+
+            const formData = new FormData(modelForm);
+            const responseDiv = addedModelsDiv;
+
+            // Collect values for model names, variants, and quantities
+            const modelNames = formData.getAll('Model Name[]');
+            const modelVariants = formData.getAll('Model Variant[]');
+            const modelQuantities = formData.getAll('Model Quantity[]');
+
+            // Join model names, variants, and quantities with commas
+            const modelNameString = modelNames.join(", ");
+            const modelVariantString = modelVariants.join(", ");
+            const modelQuantityString = modelQuantities.join(", ");
+
+            // Add the processed data to the formData object
+            formData.set('Model Name', modelNameString);
+            formData.set('Model Variant', modelVariantString);
+            formData.set('Model Quantity', modelQuantityString);
+
+            // Submit data to Google Sheets using Google Apps Script URL
+            const scriptUrl = "https://script.google.com/macros/s/AKfycbwQ9FYKp7nRajaVMKn-71AdndmaXRan7C2_mweC0-ehSSHkZh1XC6Mkj78QMXnSzaQFDg/exec";
+
+            try {
+                const response = await fetch(scriptUrl, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.text();
+                responseDiv.textContent = "Data submitted successfully!";
+            } catch (error) {
+                responseDiv.textContent = "Error submitting data!";
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
