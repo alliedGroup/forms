@@ -5,9 +5,9 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
-*{
+/* *{
     outline: 0.5px solid red;
-}
+} */
 
 body::-webkit-scrollbar {
     width: 0px; /* Hide vertical scrollbar */
