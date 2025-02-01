@@ -1,8 +1,14 @@
 body{
+    width: 100%;
+    height: 100dvh;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+*{
+    outline: 0.5px solid red;
+}
+
 body::-webkit-scrollbar {
     width: 0px; /* Hide vertical scrollbar */
     height: 0px; /* Hide horizontal scrollbar */
@@ -11,4 +17,9 @@ body::-webkit-scrollbar {
 
 .mainContainer{
     max-width: 900px;
+}
+
+/* Content Area */
+.contentArea{
+    width: 100%;
 }
