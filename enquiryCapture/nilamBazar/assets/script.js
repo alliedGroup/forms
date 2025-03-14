@@ -102,7 +102,7 @@ function handleEnquirySource(columnIndex, dropdownElement, nameAttribute) {
 // Fetch options for Enquiry Capture By
 async function fetchCaptureByOptions() {
     await fetchCsvData();
-    const captureByOptions = [...new Set(csvData.slice(1).map(row => row[6].trim()).filter(Boolean))];
+    const captureByOptions = [...new Set(csvData.slice(1).map(row => row[16].trim()).filter(Boolean))];
     populateDropdown('captureByDropDown', captureByOptions);
 }
 fetchCaptureByOptions();
@@ -110,7 +110,7 @@ fetchCaptureByOptions();
 // Fetch options for Enquiry Allocated To
 async function fetchAllocatedOptions() {
     await fetchCsvData();
-    const allocatedToOptions = [...new Set(csvData.slice(1).map(row => row[6].trim()).filter(Boolean))];
+    const allocatedToOptions = [...new Set(csvData.slice(1).map(row => row[16].trim()).filter(Boolean))];
     populateDropdown('allocatedToDropDown', allocatedToOptions);
 }
 fetchAllocatedOptions();
