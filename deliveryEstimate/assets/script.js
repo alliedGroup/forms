@@ -22,24 +22,30 @@ async function fetchCsvData() {
 // Fetch options for Enquiry Capture By
 async function fetchDseName() {
     await fetchCsvData();
-    const dseNames = [...new Set(csvData.slice(1).map(row => row[6].trim()).filter(Boolean))];
+    const dseNames = [...new Set(csvData.slice(1).map(row => row[7].trim()).filter(Boolean))];
     populateDropdown('dseNameDropDown', dseNames);
 }
 fetchDseName();
 
 
-// Fetch Option For Enquiry Model
+// Fetch Option For  Model
 async function fetchModelOptions() {
     await fetchCsvData();
     const modelOptions = [...new Set(csvData.slice(1).map(row => row[1].trim()).filter(Boolean))];
     populateDropdown('modelName', modelOptions);
 }
 fetchModelOptions();
+async function fetchModelVariant() {
+    await fetchCsvData();
+    const modelOptions = [...new Set(csvData.slice(1).map(row => row[2].trim()).filter(Boolean))];
+    populateDropdown('modelVariant', modelOptions);
+}
+fetchModelVariant();
 
 // Fetch Option For Enquiry Model Color
 async function fetchModelColorOptions() {
     await fetchCsvData();
-    const modelOptions = [...new Set(csvData.slice(1).map(row => row[2].trim()).filter(Boolean))];
+    const modelOptions = [...new Set(csvData.slice(1).map(row => row[3].trim()).filter(Boolean))];
     populateDropdown('modelColor', modelOptions);
 }
 fetchModelColorOptions();
