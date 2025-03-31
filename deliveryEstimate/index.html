@@ -42,11 +42,10 @@
             <!-- Time Stamp ( Hidden )-->
             <input type="text" id="timestamp" name="Time Stamp" readonly style="display: none;">
 
-	    <!-- DSE Name -->
-            <input type="text" id="deliveryNumber" name="Delivery Estimate Number" value="HarishHonda" readonly style="display: none;">
+	    <!-- Delivery EST No -->
             <div class="col-sm-6">
               <label for="phone" class="form-label">Delivery Estimate Number <span class="text-body-secondary">( Delivery Estimate )</span></label>
-              <input name="Phone Number" type="number" class="form-control" id="phone" placeholder="" value="" required="">
+              <input name="Del. Estimate No." type="number" class="form-control" id="phone" placeholder="" value="" required="">
             </div>
             <!-- Sales Executive -->
             <div class="col-sm-6 my-2 my-sm-0" id="dseName">
@@ -63,7 +62,7 @@
               <!-- Contact Number ( Primary Number For Whatsapp ) -->
               <div class="col-sm-6 my-2">
                 <label for="phone" class="form-label">Preferred Number <span class="text-body-secondary">( WhatsApp )</span></label>
-                <input name="Phone Number" type="number" class="form-control" id="phone" placeholder="" value="" required="">
+                <input name="WhatsApp Number" type="number" class="form-control" id="phone" placeholder="" value="" required="">
               </div>
   
 
@@ -84,19 +83,19 @@
 
               <!-- Sale Source -->
               <div class="col-12 col-md-6 my-2 px-2">
-                <label for="salesSource" class="form-label">Sale Source</label>
-                <select name="Sale Source" class="form-select" id="salesSource" required>
+                <label for="salesSource" class="form-label">Sales Sources</label>
+                <select name="Sales Sources" class="form-select" id="salesSource" required>
                   <option value="">Select Source</option>
-                  <option value="">Showroom</option>
-                  <option value="">Field</option>
-                  <option value="">Digital</option>
+                  <option value="Showroom">Showroom</option>
+                  <option value="Field">Field</option>
+                  <option value="Digital">Digital</option>
                 </select>
               </div>
 
               <!-- Exchange -->
               <div class="my-2 col-12 col-md-6 px-2">
                 <label for="exchange" class="form-label">Exchange</label>
-                <select id="exchange" name="exchange" class="form-select" required>
+                <select id="exchange" name="Exchange" class="form-select" required>
                   <option value="">Select Exchange</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
