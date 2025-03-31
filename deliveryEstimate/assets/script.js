@@ -31,13 +31,13 @@ fetchDseName();
 // Fetch Option For  Model
 async function fetchModelOptions() {
     await fetchCsvData();
-    const modelOptions = [...new Set(csvData.slice(1).map(row => row[1].trim()).filter(Boolean))];
+    const modelOptions = [...new Set(csvData.slice(1).map(row => row[0].trim()).filter(Boolean))];
     populateDropdown('modelName', modelOptions);
 }
 fetchModelOptions();
 async function fetchModelVariant() {
     await fetchCsvData();
-    const modelOptions = [...new Set(csvData.slice(1).map(row => row[2].trim()).filter(Boolean))];
+    const modelOptions = [...new Set(csvData.slice(1).map(row => row[1].trim()).filter(Boolean))];
     populateDropdown('modelVariant', modelOptions);
 }
 fetchModelVariant();
