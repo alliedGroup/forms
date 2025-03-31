@@ -67,53 +67,51 @@
               </div>
   
 
-                                 <!-- Model -->
-                    <div class="col-12 col-md-6 my-2 px-2">
-                      <label for="modelName" class="form-label">Model Name</label>
-                      <select name="Model Name" class="form-select me-2" id="modelName" required>
-                      </select>
-                    </div>
+              <!-- Model -->
+              <div class="col-12 col-md-6 my-2 px-2">
+                <label for="modelName" class="form-label">Model Name</label>
+                <select name="Model Name" class="form-select me-2" id="modelName" required>
+                </select>
+              </div>
 
-                    <!-- Model Color -->
-                    <div class="my-2 col-12 col-md-6 px-2">
-                      <label for="modelColor" class="form-label">Model Color</label>
-                      <select name="Model Color" class="form-select" id="modelColor" required>
-                      </select>
-                    </div>
+              <!-- Model Color -->
+              <div class="my-2 col-12 col-md-6 px-2">
+                <label for="modelColor" class="form-label">Model Color</label>
+                <select name="Model Color" class="form-select" id="modelColor" required>
+                </select>
+              </div>
 
-                <!-- Exchange --> 
-                <div class="w-auto my-3">
-                  <div class="mb-3">Exchange</div>
-                  <div class="customRadioBtn d-block flex-wrap gap-2 d-sm-flex">
-                  <div class="my-2 col-12 col-md-6 px-2">
-                    <select id="exchange" name="exchange" class="form-select" required>
-                        <option value="">Select Exchange</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                    </select>
-                    
-                  </div>
-                  <!-- Sales Source -->
-                  <div class="w-auto my-3">
-                    <div class="mb-3">Sales Source</div>
-                    <div class="customRadioBtn d-block flex-wrap gap-2 d-sm-flex">
-                    <div class="my-2 col-12 col-md-6 px-2">
-                      <select id="salesSource" name="salesSource" class="form-select" required>
-                        <option value="">Select Sales Source</option>
-                        <option value="Showroom">Showroom</option>
-                        <option value="Digital">Digital</option>
-                        <option value="Field">Field</option>
-                    </select>
-                </div>
+
+              <!-- Sale Source -->
+              <div class="col-12 col-md-6 my-2 px-2">
+                <label for="salesSource" class="form-label">Sale Source</label>
+                <select name="Sale Source" class="form-select" id="salesSource" required>
+                  <option value="">Select Source</option>
+                  <option value="">Showroom</option>
+                  <option value="">Field</option>
+                  <option value="">Digital</option>
+                </select>
+              </div>
+
+              <!-- Exchange -->
+              <div class="my-2 col-12 col-md-6 px-2">
+                <label for="exchange" class="form-label">Exchange</label>
+                <select id="exchange" name="exchange" class="form-select" required>
+                  <option value="">Select Exchange</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+              </select>
+            </div>
+            </div>
 
             <!-- Horizantal Line -->
             <hr class="my-4">
-
-            <!-- Submit Button -->
-            <div class="buttons p-0 d-flex justify-content-between px-2">
+             <!-- Submit Button -->
+             <div class="buttons p-0 d-flex justify-content-between px-2">
               <button class="w-50 btn btn-dark btn-lg" type="submit">Submit Form</button>
               <input type="reset" id="reset" class="w-25 btn btn-outline-danger btn-lg ms-3"></input>
             </div>
+
           </form>
         </div>
       </div>
