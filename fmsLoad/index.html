@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allocation & Dispatch Form</title>
+    <!-- [ External CSS ] -->
+    <link rel="stylesheet" href="Assets/style.css">
+    <!-- Bootstrapp 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="d-flex justify-content-center px-3 px-sm-0">
+    <div class="mainContainer mt-5">
+        <div class="header py-3 mb-3" style="padding: 0 12px;">
+            <h2 class="">Harish Honda</h2>
+            <p class="mb-4">Network Allocation Load Punched Details</p>
+        </div>
+        <form id="model-form" class="w-100 d-flex justify-content-center">
+            <div class="contentArea d-flex flex-wrap row">
+
+                <!-- [Plant Name ] -->
+                <div class="row">
+                    <!-- Network Name Dropdown -->
+                    <div class="mb-3 col-12 col-sm-6">
+                        <label for="networkName" class="form-label">Network Name</label>
+                        <select class="form-select" name="Network Name" id="networkName">
+                            <option selected disabled>Select Network</option>
+                            <option value="Lovnish Honda">Lovnish Honda</option>
+                            <option value="Ashangbam Honda">Ashangbam Honda</option>
+                            <option value="B K Motors">B K Motors</option>
+                            <option value="Premjit Motors">Premjit Motors</option>
+                            <option value="BM Agency Honda">BM Agency Honda</option>
+                            <option value="Nilambazar Honda">Nilambazar Honda</option>
+                            <option value="HKD Honda">HKD Honda</option>
+                            <option value="RK Nagar Honda">RK Nagar Honda</option>
+                        </select>
+                    </div>
+                
+                    <!-- Load Type Dropdown (already provided) -->
+                    <div class="mb-3 col-12 col-sm-6">
+                        <label for="loadType" class="form-label">Load Type</label>
+                        <select class="form-select" name="Load Type" id="loadType">
+                            <option value="MC">MC</option>
+                            <option value="SC">SC</option>
+                            <option value="MC/SC">MC and SC</option>
+                        </select>
+                    </div>
+               
+                
+    
+                <!-- Load Type -->
+                <div class="mb-3 col-12 col-sm-6">
+                    <label for="load-type" class="form-label">Load Type</label>
+                    <select class="form-select" name="Load Type" id="loadType">
+                        <option value="MC">MC</option>
+                        <option value="SC">SC</option>
+                        <option value="MC/SC">MC and SC</option>
+                    </select>
+                </div>
+    
+                <!-- Dispatch Plan -->
+                <div class="mb-3 col-12 col-sm-6">
+                    <label for="dispatch-plan" class="form-label">Dispatch Plan</label>
+                    <input type="date" id="dispatch-plan" name="Despatch Plan Date" class="form-control" required>
+                </div>
+    
+                <!-- Add Models -->
+                <div>
+                    <div class="mb-4">
+                        <h4>Vehicle Details</h4>
+                        <div id="model-container" class="mb-3"></div>
+                        <button type="button" class="btn btn-dark" onclick="addModelVariant()">+ Add Model Details</button>
+                    </div>
+        
+                    <div id="added-models" class="text-dark"></div>
+                    <input id="submitBtn" type="submit" value="Submit" class="btn btn-dark px-5 mt-4">
+                </div>
+
+            </div>   
+        </form>
+    </div>
+
+    <!-- [ Bootstrap ] -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- [ External JS ] -->
+    <script src="Assets/script.js"></script>
+</body>
+
+</html>
