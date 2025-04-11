@@ -92,7 +92,7 @@ async function addModelVariant() {
 
 // Calculate the total quantity when form is submitted
 function calculateTotalQuantity() {
-    const quantities = document.querySelectorAll('input[name="Model Quantity[]"]');
+    const quantities = document.querySelectorAll('input[name="Model Quantity2[]"]');
     let totalQuantity = 0;
     quantities.forEach(quantityInput => {
         const quantity = parseFloat(quantityInput.value) || 0;
@@ -126,16 +126,16 @@ modelForm.addEventListener("submit", async (e) => {
     const responseDiv = addedModelsDiv;
 
     // Collect values for model names and quantities
-    const modelNames = formData.getAll('Model Name[]');
-    const modelQuantities = formData.getAll('Model Quantity[]');
+    const modelNames = formData.getAll('Model Name2[]');
+    const modelQuantities = formData.getAll('Model Quantity2[]');
 
     // Join model names and quantities with commas
     const modelNameString = modelNames.join(", ");
     const modelQuantityString = modelQuantities.join(", ");
 
     // Add the processed data to the formData object
-    formData.set('Model Name', modelNameString);
-    formData.set('Model Quantity', modelQuantityString);
+    formData.set('Model Name2', modelNameString);
+    formData.set('Model Quantity2', modelQuantityString);
 
     // Calculate total quantity (Qty) and add it to the form data
     const totalQuantity = calculateTotalQuantity();
