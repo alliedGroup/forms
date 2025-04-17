@@ -207,7 +207,7 @@ document.getElementById("exRegNo").value = urlParams.get("exRegNo") || "";
 document.getElementById("exYearPurchase").value = urlParams.get("exYearPurchase") || "";
 document.getElementById("exKmRun").value = urlParams.get("exKmRun") || "";
 document.getElementById("exExpected").value = urlParams.get("exExpected") || "";
-document.getElementById("networkName").value = urlParams.get("networkName") || "";
+document.getElementById("network").value = urlParams.get("network") || "";
 
 // Select "Yes" or "No" for the Exchange radio button
 const exchangeValue = urlParams.get("exchange");
