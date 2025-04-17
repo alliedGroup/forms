@@ -207,6 +207,8 @@ document.getElementById("exRegNo").value = urlParams.get("exRegNo") || "";
 document.getElementById("exYearPurchase").value = urlParams.get("exYearPurchase") || "";
 document.getElementById("exKmRun").value = urlParams.get("exKmRun") || "";
 document.getElementById("exExpected").value = urlParams.get("exExpected") || "";
+document.getElementById("location").value = urlParams.get("location") || "";
+
 // Select "Yes" or "No" for the Exchange radio button
 const exchangeValue = urlParams.get("exchange");
 // If the exchange value is 'Yes', select the "Yes" radio and show the exchange section
