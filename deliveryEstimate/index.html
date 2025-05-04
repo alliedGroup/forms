@@ -44,17 +44,18 @@
 
 	    <!-- Delivery EST No -->
             <div class="col-sm-6">
-              <label for="phone" class="form-label">Delivery Estimate Number <span class="text-body-secondary">( Delivery Estimate )</span></label>
+              <label for="phone" class="form-label">D.E.N <span class="text-body-secondary">( Delivery Estimate Number )</span></label>
               <input name="Del. Estimate No." type="number" class="form-control" id="phone" placeholder="" value="" required="">
             </div>
             <!-- Sales Executive -->
             <div class="col-sm-6 my-2 my-sm-0" id="dseName">
-                <label for="dseNameDropDown" class="form-label">DSE Name</label>
+                <label for="dseNameDropDown" class="form-label">Sales Executive</label>
                 <select name="Sales Executive" class="form-select" id="dseNameDropDown" required>
                 </select>
             </div>
 
-                     <div class="col-sm-6 my-2">
+              <!-- Customer Name -->
+              <div class="col-sm-6 my-2">
                 <label  for="name" class="form-label">Name <span class="text-body-secondary">( Customer Full Name )</span></label>
                 <input name="Customer Name" type="text" class="form-control" id="name" placeholder="" value="" required="">
               </div>
@@ -66,13 +67,13 @@
               </div>
   
 
-              <!-- Model -->
+              <!-- Model Name-->
               <div class="col-12 col-md-6 my-2 px-2">
                 <label for="modelName" class="form-label">Model Name</label>
                 <select name="Model Name" class="form-select me-2" id="modelName" required>
                 </select>
               </div>
-		<!-- Model -->
+		          <!-- Model Varient-->
               <div class="col-12 col-md-6 my-2 px-2">
                 <label for="modelVariant" class="form-label">Model Variant</label>
                 <select name="Model Variant" class="form-select me-2" id="modelVariant" required>
@@ -106,6 +107,8 @@
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
               </select>
+              <!-- Exchanger Name -->
+              <input name="Exchanger Name" type="text" class="form-control mt-2" id="exchangerName" placeholder="Exchanger Name" value="" required="" style="display:none;">
             </div>
             
               	
@@ -169,12 +172,12 @@
               </select>
             </div>
             
-		<!-- Accs Target -->
+		        <!-- Accs Target -->
             <div class="my-2 col-12 col-md-6 px-2">
               <label for="phone" class="form-label">Accessories Target<span class="text-body-secondary">( Accs Planned )</span></label>
               <input name="Accs Planned" type="number" class="form-control" id="phone" placeholder="" value="" required="">
             </div>
-			<!-- Accs Achieved -->
+			      <!-- Accs Achieved -->
             <div class="my-2 col-12 col-md-6 px-2">
               <label for="phone" class="form-label">Accessories Achieved<span class="text-body-secondary">( Accs Achieved )</span></label>
               <input name="Accs Achieved" type="number" class="form-control" id="phone" placeholder="" value="" required="">
@@ -210,5 +213,21 @@
     const submitUrl = "https://script.google.com/macros/s/AKfycbwY68V5IHn_PGHeD1C9-0NRSd_SP2xiSproq4yUFgzaLaPxekVfXLjSseVbPW4QJB3bQA/exec" ;
     document.getElementById("deliveryForm").addEventListener("submit",function(e){e.preventDefault();const t=e.target,n=new FormData(t),o=new URLSearchParams;for(const e of n)o.append(e[0],e[1]);const s=t.querySelector('button[type="submit"]');s.disabled=!0;s.innerHTML="Please Wait..";fetch(submitUrl,{method:"POST",body:o}).then(e=>e.json()).then(()=>fetch('success.html').then(e=>e.text()).then(html=>document.body.innerHTML=html).finally(()=>{document.body.style.overflow='';s.disabled=!1})).catch(e=>{console.error("Error:",e);alert("An error occurred while submitting the form.");s.disabled=!1});});
     </script>
+    <script>
+      const exchangeSelect = document.getElementById("exchange");
+      const exchangerNameInput = document.getElementById("exchangerName");
+    
+      exchangeSelect.addEventListener("change", function () {
+        if (this.value === "Yes") {
+          exchangerNameInput.style.display = "block";
+          exchangerNameInput.required = true;  // Make it required
+        } else {
+          exchangerNameInput.style.display = "none";
+          exchangerNameInput.required = false; // Not required if not shown
+          exchangerNameInput.value = "";       // Clear the value
+        }
+      });
+    </script>
+    
 </body>
 </html>

@@ -1,5 +1,5 @@
 // Sheet URL ( Publish "Confrigation" Sheet As CSV File And use the CSV Link Here )
-const sourceUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSS58IoBCM_4m7DohiC2UGYpPKjP1_YTpp0mIRWYfLQnZ-dWEvk-SfwMKABxElSbOUn3oq_3FYeuVBP/pub?gid=1246389069&single=true&output=csv';
+const sourceUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5dtpUB9Vutk05o6rsOBRqieHXleMe22yUgVL64jwQVPamDY_JauZ3Z5fmSwp2cItVqg8gsNPdNLrl/pub?gid=1246389069&single=true&output=csv';
 
 
 // Store CSV data globally
@@ -22,7 +22,7 @@ async function fetchCsvData() {
 // Fetch options for Enquiry Capture By
 async function fetchDseName() {
     await fetchCsvData();
-    const dseNames = [...new Set(csvData.slice(1).map(row => row[7].trim()).filter(Boolean))];
+    const dseNames = [...new Set(csvData.slice(1).map(row => row[6].trim()).filter(Boolean))];
     populateDropdown('dseNameDropDown', dseNames);
 }
 fetchDseName();
@@ -45,7 +45,7 @@ fetchModelVariant();
 // Fetch Option For Enquiry Model Color
 async function fetchModelColorOptions() {
     await fetchCsvData();
-    const modelOptions = [...new Set(csvData.slice(1).map(row => row[3].trim()).filter(Boolean))];
+    const modelOptions = [...new Set(csvData.slice(1).map(row => row[2].trim()).filter(Boolean))];
     populateDropdown('modelColor', modelOptions);
 }
 fetchModelColorOptions();
