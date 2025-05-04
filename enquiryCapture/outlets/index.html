@@ -12,6 +12,9 @@
     <meta name="robots" content="noindex, nofollow">
     <!-- Fav Icon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <script>
+      window.onload=function(){document.querySelector(".outletName").textContent=document.getElementById("network").value};
+    </script>
     
 </head>
 <body class="container py-5 px-4 gx-0">
@@ -26,10 +29,10 @@
 	<div class="row d-flex justify-content-center">
         <div class="col-lg-8">
         <!-- Heading -->
-          <div class="header mb-5 d-flex pb-5">
+          <div class="header mb-3 d-flex">
             <img class="hondaLogo" src="assets/images/hondaLogo.svg" alt="Harish Honda">
             <div class="title ms-4">
-              <h1 class="fs-1 mb-0">Harish Honda Outlets</h1>
+              <h1 class="fs-1 mb-0">Harish Honda <span class="outletName"></span></h1>
               <p>Sales Enquiry Capture Form</p>
             </div>
           </div>
@@ -37,16 +40,15 @@
           <!-- Enquiry Form Start -->
           <form id="enquiryForm" name="enquiryForm">
           <div class="row gx-3">
-            <div class="legend">DSE Details</div>
+            <!-- Outlet Name -->
+            <div class="col-12 mb-4 d-none" id="networkName">
+              <label  for="network" class="form-label">Outlets Name:</label>
+              <input name="Network Name" type="text" class="form-control" id="network" placeholder="Outlet Name" value="Outlet Name" required="" readonly>
+            </div>
 
+            <div class="legend">DSE Details</div>
             <!-- Time Stamp ( Hidden )-->
             <input type="text" id="timestamp" name="Time Stamp" readonly style="display: none;">
-
-            <!-- Network Name Dropdown -->
-            <div class="col-12 my-2 my-sm-0" id="networkName">
-                 <label  for="network" class="form-label">Outlets Name:</label>
-		  <input name="Network Name" type="text" class="form-control" id="network" placeholder="" value="" required="" readonly  >
-            </div>
                   
             <!-- Enquiry Capture By -->
             <div class="col-sm-6 my-2 my-sm-0" id="captureBy">
