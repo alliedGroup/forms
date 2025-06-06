@@ -29,7 +29,7 @@
           <div class="header mb-5 d-flex pb-5">
             <img class="hondaLogo" src="assets/images/hondaLogo.svg" alt="Harish Honda">
             <div class="title ms-4">
-              <h1 class="fs-1 mb-0">Harish Honda</h1>
+              <h1 class="fs-1 mb-0">HH Outlets</h1>
               <p>Order of Delivery Form</p>
             </div>
           </div>
@@ -38,13 +38,14 @@
           <form id="deliveryForm" name="deliveryForm">
           <div class="row gx-3">
             <div class="legend">Delivery Estimate Details</div>
-   <!-- Outlet Name -->
+  
+            <!-- Time Stamp ( Hidden )-->
+            <input type="text" id="timestamp" name="Time Stamp" readonly style="display: none;">
+ <!-- Outlet Name -->
             <div class="col-12 mb-4 d-none" id="networkName">
               <label  for="network" class="form-label">Outlets Name:</label>
               <input name="Network Name" type="text" class="form-control" id="network" placeholder="Outlet Name" value="Outlet Name" required="" readonly>
             </div>
-            <!-- Time Stamp ( Hidden )-->
-            <input type="text" id="timestamp" name="Time Stamp" readonly style="display: none;">
 
 	    <!-- Delivery EST No -->
             <div class="col-sm-6">
