@@ -12,6 +12,23 @@
     <meta name="robots" content="noindex, nofollow">
     <!-- Fav Icon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <script>
+      window.onload = function () {
+        const params = new URLSearchParams(window.location.search);
+        const outlet = params.get("outletName");
+
+        if (outlet) {
+          // Set the input value
+          document.getElementById("outletname").value = outlet;
+
+          // Set the h1 text
+          const outletHeading = document.querySelector(".outletName");
+          if (outletHeading) outletHeading.textContent = outlet;
+        }
+      };
+    </script>
+
     
 </head>
 <body class="container py-5 px-4 gx-0">
@@ -29,7 +46,7 @@
           <div class="header mb-5 d-flex pb-5">
             <img class="hondaLogo" src="assets/images/hondaLogo.svg" alt="Harish Honda">
             <div class="title ms-4">
-              <h1 class="fs-1 mb-0">HH Outlets</h1>
+              <h1 class="fs-1 mb-0 outletName">Outlet Name</h1>
               <p>Order of Delivery Form</p>
             </div>
           </div>
@@ -41,13 +58,14 @@
   
             <!-- Time Stamp ( Hidden )-->
             <input type="text" id="timestamp" name="Time Stamp" readonly style="display: none;">
- <!-- Outlet Name -->
-            <div class="col-sm-6 my-2" id="networkName">
+
+            <!-- Outlet Name -->
+            <div class="col-sm-6 my-2 d-none" id="networkName">
               <label  for="network" class="form-label">Outlets Name:</label>
-              <input name="Network Name" type="text" class="form-control" id="network" placeholder="Outlet Name" value="Outlet Name" required="" readonly>
+              <input name="Network Name" type="text" class="form-control" id="outletname" placeholder="Outlet Name" value="Outlet Name" required="" readonly>
             </div>
 
-	    <!-- Delivery EST No -->
+	          <!-- Delivery EST No -->
             <div class="col-sm-6">
               <label for="phone" class="form-label">D.E.N <span class="text-body-secondary">( Delivery Estimate Number )</span></label>
               <input name="Del. Estimate No." type="number" class="form-control" id="phone" placeholder="" value="" required="">
@@ -224,7 +242,7 @@
     <script src="assets/script.js"></script>
     <script>
     // Submit Form
-    const submitUrl = "https://script.google.com/macros/s/AKfycbwjDr75rdMW21XhN1eoPYSX7QsWOQnBhhN8nMSwkoMMl4dybLnE0oyrclIggOtEfRKh/exec" ;
+    const submitUrl = "https://script.google.com/macros/s/AKfycbwOVV4iaDbSU8Pt0-jXc1YZV7LsyFf060pnBcC5RiFQAathw07eSr_T3B_9eTVO89lZ/exec" ;
     document.getElementById("deliveryForm").addEventListener("submit",function(e){e.preventDefault();const t=e.target,n=new FormData(t),o=new URLSearchParams;for(const e of n)o.append(e[0],e[1]);const s=t.querySelector('button[type="submit"]');s.disabled=!0;s.innerHTML="Please Wait..";fetch(submitUrl,{method:"POST",body:o}).then(e=>e.json()).then(()=>fetch('success.html').then(e=>e.text()).then(html=>document.body.innerHTML=html).finally(()=>{document.body.style.overflow='';s.disabled=!1})).catch(e=>{console.error("Error:",e);alert("An error occurred while submitting the form.");s.disabled=!1});});
     </script>
     <script>
