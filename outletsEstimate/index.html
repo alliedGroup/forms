@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Page Title -->
+    <Title>Order of Delivery Form - Harish Honda</Title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+    <!-- Hide From Search Engine ( Google Search )-->
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Fav Icon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+</head>
+<body class="container py-5 px-4 gx-0">
+  <!--////////////////////////////////////////////////////
+  Name : Delivery Estimate Form
+  Company : Harish Honda 
+  Version : 1.0
+  Author : RAHUL pro
+  Last Updated : 17/09/24
+  ///////////////////////////////////////////////////-->
+
+	<div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+        <!-- Heading -->
+          <div class="header mb-5 d-flex pb-5">
+            <img class="hondaLogo" src="assets/images/hondaLogo.svg" alt="Harish Honda">
+            <div class="title ms-4">
+              <h1 class="fs-1 mb-0">Harish Honda</h1>
+              <p>Order of Delivery Form</p>
+            </div>
+          </div>
+
+          <!-- Enquiry Form Start -->
+          <form id="deliveryForm" name="deliveryForm">
+          <div class="row gx-3">
+            <div class="legend">Delivery Estimate Details</div>
+   <!-- Outlet Name -->
+            <div class="col-12 mb-4 d-none" id="networkName">
+              <label  for="network" class="form-label">Outlets Name:</label>
+              <input name="Network Name" type="text" class="form-control" id="network" placeholder="Outlet Name" value="Outlet Name" required="" readonly>
+            </div>
+            <!-- Time Stamp ( Hidden )-->
+            <input type="text" id="timestamp" name="Time Stamp" readonly style="display: none;">
+
+	    <!-- Delivery EST No -->
+            <div class="col-sm-6">
+              <label for="phone" class="form-label">D.E.N <span class="text-body-secondary">( Delivery Estimate Number )</span></label>
+              <input name="Del. Estimate No." type="number" class="form-control" id="phone" placeholder="" value="" required="">
+            </div>
+            <!-- Sales Executive -->
+            <div class="col-sm-6 my-2 my-sm-0" id="dseName">
+                <label for="dseNameDropDown" class="form-label">Sales Executive</label>
+                <select name="Sales Executive" class="form-select" id="dseNameDropDown" required>
+                </select>
+            </div>
+
+              <!-- Customer Name -->
+              <div class="col-sm-6 my-2">
+                <label  for="name" class="form-label">Name <span class="text-body-secondary">( Customer Full Name )</span></label>
+                <input name="Customer Name" type="text" class="form-control" id="name" placeholder="" value="" required="">
+              </div>
+  
+              <!-- Contact Number ( Primary Number For Whatsapp ) -->
+              <div class="col-sm-6 my-2">
+                <label for="phone" class="form-label">Preferred Number <span class="text-body-secondary">( WhatsApp )</span></label>
+                <input name="WhatsApp Number" type="number" class="form-control" id="phone" placeholder="" value="" required="">
+              </div>
+  
+
+              <!-- Model Name-->
+              <div class="col-12 col-md-6 my-2 px-2">
+                <label for="modelName" class="form-label">Model Name</label>
+                <select name="Model Name" class="form-select me-2" id="modelName" required>
+                </select>
+              </div>
+		          <!-- Model Varient-->
+              <div class="col-12 col-md-6 my-2 px-2">
+                <label for="modelVariant" class="form-label">Model Variant</label>
+                <select name="Model Variant" class="form-select me-2" id="modelVariant" required>
+                </select>
+              </div>
+
+              <!-- Model Color -->
+              <div class="my-2 col-12 col-md-6 px-2">
+                <label for="modelColor" class="form-label">Model Color</label>
+                <select name="Model Colour" class="form-select" id="modelColor" required>
+                </select>
+              </div>
+
+
+              <!-- Sale Source -->
+              <div class="col-12 col-md-6 my-2 px-2">
+                <label for="salesSource" class="form-label">Sales Sources</label>
+                <select name="Sales Sources" class="form-select" id="salesSource" required>
+                  <option value="">Select Source</option>
+                  <option value="Showroom">Showroom</option>
+                  <option value="Field">Field</option>
+                  <option value="Digital">Digital</option>
+                </select>
+              </div>
+
+              <!-- Exchange -->
+              <div class="my-2 col-12 col-md-6 px-2">
+                <label for="exchange" class="form-label">Exchange</label>
+                <select id="exchange" name="Exchange" class="form-select" required>
+                  <option value="">Select Exchange</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              <!-- Exchanger Name -->
+              <!-- <label for="exchangerName">Exchanegr Name</label> -->
+              <select id="exchangerName" name="Exchanger Name" class="form-select mt-3" required style="display: none;">
+                <option value="">Select Exchanger</option>
+                <option value="Nahid">Nahid</option>
+                <option value="Monsur">Monsur</option>
+                <option value="RB Motors">RB Motors</option>
+		<option value="RB Motors">Bapon</option>
+		<option value="New 1">New 1</option>
+		<option value="New 2">New 2</option>
+              </select>
+            </div>
+            
+              	
+              <!-- Insurance -->
+              <div class="col-12 col-md-6 my-2 px-2">
+                <label for="insurance" class="form-label">Insurance</label>
+                <select id="insurance" name="Insurance" class="form-select" required>
+                  <option value="">Select Insurance</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+              </select>
+            </div>
+            
+		     <!-- EW -->
+              <div class="my-2 col-12 col-md-6 px-2">
+                <label for="ew" class="form-label">EW <span class="text-body-secondary">(Extended Warranty)</span></label>
+                <select id="ew" name="EW" class="form-select" required>
+                  <option value="">Select EW</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+              </select>
+            </div>
+            
+    			 <!-- AMC -->
+              <div class="my-2 col-12 col-md-6 px-2">
+                <label for="amc" class="form-label">AMC <span class="text-body-secondary">(Annual Maintenance Contract)</span> </label>
+                <select id="amc" name="AMC" class="form-select" required>
+                  <option value="">Select AMC</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+              </select>
+            </div>
+            
+		 <!-- DPC -->
+              <div class="my-2 col-12 col-md-6 px-2">
+                <label for="dpc" class="form-label">DPC</label>
+                <select id="dpc" name="DPC" class="form-select" required>
+                  <option value="">Select DPC</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+              </select>
+            </div>
+            
+ 			<!-- UltraCoating -->
+              <div class="my-2 col-12 col-md-6 px-2">
+                <label for="uc" class="form-label">Ultra Coating</label> 
+                <select id="uc" name="UC" class="form-select" required>
+                  <option value="">Select Ultra Coating</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+              </select>
+            </div>
+            
+			<!-- HSRP -->
+              <div class="my-2 col-12 col-md-6 px-2">
+                <label for="hsrp" class="form-label">HSRP</label>
+                <select id="hsrp" name="HSRP" class="form-select" required>
+                  <option value="">Select HSRP</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+              </select>
+            </div>
+            
+		        <!-- Accs Target -->
+            <div class="my-2 col-12 col-md-6 px-2">
+              <label for="phone" class="form-label">Accessories Target<span class="text-body-secondary">( Accs Planned )</span></label>
+              <input name="Accs Planned" type="number" class="form-control" id="phone" placeholder="" value="" required="">
+            </div>
+			      <!-- Accs Achieved -->
+            <div class="my-2 col-12 col-md-6 px-2">
+              <label for="phone" class="form-label">Accessories Achieved<span class="text-body-secondary">( Accs Achieved )</span></label>
+              <input name="Accs Achieved" type="number" class="form-control" id="phone" placeholder="" value="" required="">
+            </div>
+          </div>
+
+            <!-- Horizantal Line -->
+            <hr class="my-4">
+             <!-- Submit Button -->
+             <div class="buttons p-0 d-flex justify-content-between px-2">
+              <button class="w-50 btn btn-dark btn-lg" type="submit">Submit Form</button>
+              <input type="reset" id="reset" class="w-25 btn btn-outline-danger btn-lg ms-3"></input>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- From Success Message -->
+      <div id="successMessage" style="display: none;"></div>
+
+      <!-- Footer -->
+      <footer class="col-lg-12 my-5 pt-5">
+        <p class="text-body-secondary" id="footer-text">© <span id="current-year"></span> <a href="https://www.harishhonda.com/">Harish Honda</a>. All rights reserved. Unauthorized use of this form outside of authorized users is strictly prohibited.</p>
+        <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+      </footer>
+      
+
+    <!-- External JS -->
+    <script src="assets/script.js"></script>
+    <script>
+    // Submit Form
+    const submitUrl = "https://script.google.com/macros/s/AKfycbwjDr75rdMW21XhN1eoPYSX7QsWOQnBhhN8nMSwkoMMl4dybLnE0oyrclIggOtEfRKh/exec" ;
+    document.getElementById("deliveryForm").addEventListener("submit",function(e){e.preventDefault();const t=e.target,n=new FormData(t),o=new URLSearchParams;for(const e of n)o.append(e[0],e[1]);const s=t.querySelector('button[type="submit"]');s.disabled=!0;s.innerHTML="Please Wait..";fetch(submitUrl,{method:"POST",body:o}).then(e=>e.json()).then(()=>fetch('success.html').then(e=>e.text()).then(html=>document.body.innerHTML=html).finally(()=>{document.body.style.overflow='';s.disabled=!1})).catch(e=>{console.error("Error:",e);alert("An error occurred while submitting the form.");s.disabled=!1});});
+    </script>
+    <script>
+      const exchangeSelect = document.getElementById("exchange");
+      const exchangerNameInput = document.getElementById("exchangerName");
+    
+      exchangeSelect.addEventListener("change", function () {
+        if (this.value === "Yes") {
+          exchangerNameInput.style.display = "block";
+          exchangerNameInput.required = true;  // Make it required
+        } else {
+          exchangerNameInput.style.display = "none";
+          exchangerNameInput.required = false; // Not required if not shown
+          exchangerNameInput.value = "";       // Clear the value
+        }
+      });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,157 @@
+/* Universal Values */
+:root{
+    --secondary: #eeeeee;
+    --primary :#3e3749;
+    --black :#212529;
+    --red : #ff0000;
+}
+
+/* Body */
+body{
+  height: 100dvh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  transition: all .3s ease;
+}
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* *{
+  outline: 1px solid red;
+} */
+
+
+/* Honda Logo */
+.hondaLogo{
+    height: 4.8rem;
+    width: auto;
+}
+
+.title{
+    h1{
+        /* text-transform: uppercase; */
+        font-weight: bold;
+    }
+}
+
+/* Fieldset */
+legend.dse{
+    display: inline-block;
+    background: var(--secondary) ;
+    width: auto;
+    padding: 0px 15px;
+    border-radius: 25px;
+    height: auto;
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    top: -30px;
+}
+legend.customer{
+    display: block;
+    background: var(--primary) ;
+    width: 100%;
+    padding: 0px 15px;
+    border-radius: 25px;
+    height: auto;
+    font-size: 18px;
+    position: relative;
+    top: -45px;
+}
+
+.legend{
+    width: 100%;
+    display: inline;
+    position: relative;
+    left:20px;
+    margin-bottom: 20px;
+    color: var(--secondary);
+}
+.legend::before{
+    content: '';
+    display: inline-block;
+    width: 210px;
+    height: 28px;
+    border-radius: 25px;
+    z-index: -1;
+    position: absolute;
+    background: var(--black);
+    left: -12px;
+}
+.legend::after{
+    content: '';
+    display: inline-block;
+    width: 90%;
+    height: 1px;
+    background: var(--secondary);
+    position: absolute;
+    /* left: -15px; */
+    right: 25px;
+    top:13px;
+    z-index: -2;
+}
+
+/* Custom Radio Button */
+.customRadioBtn input[type="radio"] {
+    display: none;
+  }
+  .customRadioBtn .form-check{
+    padding-left: 0;
+  }
+  .customRadioBtn label {
+    position: relative;
+    color: var(--primary);
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8em;
+    border: 1px solid var(--secondary);
+    padding: 2.5px 10px;
+    border-radius: 20px;
+  }
+  .customRadioBtn label:before {
+    content: "";
+    height: 15px;
+    width: auto;
+    aspect-ratio: 1/1;
+    border: 2px solid var(--secondary);
+    border-radius: 50%;
+  }
+  
+  input[type="radio"]:checked + label:before {
+    height: 15px;
+    width: auto;
+    aspect-ratio: 1/1;
+    /* border: 1px solid var(--black); */
+    background-color: var(--secondary);
+  }
+  
+  input[type="radio"]:checked + label {
+    background-color: var(--black);
+    color: var(--secondary);
+    border: 1px solid var(--primary);
+  }
+
+/* Succeess Message*/
+#successMessage{
+  height: 100dvh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* Drop Down */
+select option {
+  text-transform: capitalize;
+}
