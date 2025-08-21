@@ -24,7 +24,7 @@ let models = [];
 async function fetchModelOptions() {
     await fetchCsvData();
     // Extract models from CSV, ensuring uniqueness
-    models = [...new Set(csvData.slice(1).map(row => row[1].trim()).filter(Boolean))];
+    models = [...new Set(csvData.slice(0).map(row => row[1].trim()).filter(Boolean))];
 }
 
 // Fetch models on page load
