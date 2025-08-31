@@ -146,7 +146,7 @@ modelForm.addEventListener("submit", async (e) => {
     formData.set('Timestamp', timestamp); // Set the "Timestamp" field
 
     // Submit data to Google Sheets using Google Apps Script URL
-    const scriptUrl = "https://script.google.com/macros/s/AKfycbz8PR8P_syCdiI4MooIzSTw2sDz1M59d5WKChwKSeJTMm9qsIaqE3iAe_J4AGhRPr0T/exec";
+    const scriptUrl = "https://script.google.com/macros/s/AKfycbzZvur1vYmtM0G91q-Hg7yz_q_UxoatR3pyjOIuuRsdSRF8gwJ1nsMvMTeZdyoY1MVy/exec";
 
     try {
         const response = await fetch(scriptUrl, {
