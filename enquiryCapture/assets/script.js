@@ -61,6 +61,8 @@ function populateAllDropdowns() {
 function populateDropdown(dropdownId, options) {
     const selectElement = document.getElementById(dropdownId);
     if (!selectElement) return;
+    // Stop re-rendering if already populated
+    if (selectElement.options.length > 1) return;
     selectElement.innerHTML = '<option value="">Select Option</option>';
     options.forEach(option => {
         const opt = document.createElement('option');
@@ -78,7 +80,7 @@ const digitalPromotionDropdown = document.getElementById('digitalPromotionDropdo
 
 document.querySelectorAll('input[name="Enquiry Source"]').forEach((radio) => {
     radio.addEventListener('change', async (event) => {
-        await fetchCsvData(); // ensure fresh CSV data is available
+       if (!csvData) await fetchCsvData(); // ensure fresh CSV data is available
         switch (event.target.id) {
             case 'Showroom':
                 handleEnquirySource(3, showroomDropdown, 'Showroom Enquiry Type');
