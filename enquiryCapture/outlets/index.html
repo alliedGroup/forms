@@ -372,22 +372,15 @@
     <!-- External JS -->
     <script src="assets/script.js"></script>
 	<script>
-	  function updateEnquiryCapturedAt(ref) {
-	    if (!ref) return;
-	
-	    try {
-	      fetch(
-	        'https://leads.harishhonda.com/api/update_enquiry_captured_at.php',
-	        {
-	          method: 'POST',
-	          headers: { 'Content-Type': 'application/json' },
-	          body: JSON.stringify({ reference_id: ref })
-	        }
-	      );
-	    } catch (e) {
-	      console.error('Enquiry update failed', e);
-	    }
-	  }
+		function updateEnquiryCapturedAt(ref) {
+		  if (!ref) return;
+		
+		  const img = new Image();
+		  img.src =
+		    'https://leads.harishhonda.com/api/update_enquiry_captured_at.php' +
+		    '?reference_id=' + encodeURIComponent(ref);
+		}
+
 	
 	  // Submit Form
 	  const submitUrl = "https://script.google.com/macros/s/AKfycbxeRds37N9pgH6TN8wwrzHpRHX2uPQCvqkTd-u1S3r2RATVxEKZfscsRWBC_7Zhpggk/exec";
