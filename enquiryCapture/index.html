@@ -366,9 +366,51 @@
     <!-- External JS -->
     <script src="assets/script.js"></script>
     <script>
-    // Submit Form
-    const submitUrl = "https://script.google.com/macros/s/AKfycbwZGy2vah-gitw4Q-B_hksbgW8p2z2Og8Fuwc9vklKqLJXKE2lr5OymyxpBFEKRCRtV/exec" ;
-    document.getElementById("enquiryForm").addEventListener("submit",function(e){e.preventDefault();const t=e.target,n=new FormData(t),o=new URLSearchParams;for(const e of n)o.append(e[0],e[1]);const s=t.querySelector('button[type="submit"]');s.disabled=!0;s.innerHTML="Please Wait..";fetch(submitUrl,{method:"POST",body:o}).then(e=>e.json()).then(()=>fetch('success.html').then(e=>e.text()).then(html=>document.body.innerHTML=html).finally(()=>{document.body.style.overflow='';s.disabled=!1})).catch(e=>{console.error("Error:",e);alert("An error occurred while submitting the form.");s.disabled=!1});});
-    </script>
+		function updateEnquiryCapturedAt(ref) {
+		  if (!ref) return;
+		
+		  const img = new Image();
+		  img.src =
+		    'https://leads.harishhonda.com/api/update_enquiry_captured_at.php' +
+		    '?reference_id=' + encodeURIComponent(ref);
+		}
+
+	
+	  // Submit Form
+	  const submitUrl = "https://script.google.com/macros/s/AKfycbwZGy2vah-gitw4Q-B_hksbgW8p2z2Og8Fuwc9vklKqLJXKE2lr5OymyxpBFEKRCRtV/exec";
+	
+	  document.getElementById("enquiryForm").addEventListener("submit", function (e) {
+	    e.preventDefault();
+	
+	    const t = e.target;
+	    const n = new FormData(t);
+	    const o = new URLSearchParams();
+	    for (const e of n) o.append(e[0], e[1]);
+	
+	    const s = t.querySelector('button[type="submit"]');
+	    s.disabled = true;
+	    s.innerHTML = "Please Wait..";
+	
+	    fetch(submitUrl, { method: "POST", body: o })
+	      .then(e => e.json())
+	      .then(() => {
+	        const ref = document.getElementById("ref")?.value;
+	        updateEnquiryCapturedAt(ref);
+	
+	        return fetch('success.html')
+	          .then(e => e.text())
+	          .then(html => document.body.innerHTML = html);
+	      })
+	      .finally(() => {
+	        document.body.style.overflow = '';
+	        s.disabled = false;
+	      })
+	      .catch(e => {
+	        console.error("Error:", e);
+	        alert("An error occurred while submitting the form.");
+	        s.disabled = false;
+	      });
+	  });
+	</script>
 </body>
 </html>
